@@ -1,7 +1,7 @@
 import { Deal, DealFilter, DealSortOptions, DealStats } from '../types';
 
 // Mock API endpoints - replace with real API calls
-const API_BASE_URL = 'https://api.yourstore.com/deals';
+const API_BASE_URL = 'https://quickkart-b0yb.onrender.com/deals';
 
 class DealsService {
   // Fetch all deals with optional filters

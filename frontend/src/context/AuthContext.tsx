@@ -36,7 +36,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('https://quickkart-b0yb.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -63,7 +63,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch('https://quickkart-b0yb.onrender.com/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })
