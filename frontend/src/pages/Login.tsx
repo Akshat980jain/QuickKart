@@ -254,7 +254,7 @@ const Login = () => {
       </div>
 
       {/* Custom CSS for shake animation */}
-      <style jsx>{`
+      <style>{`
         @keyframes shake {
           0%, 100% { transform: translateX(0); }
           25% { transform: translateX(-5px); }
