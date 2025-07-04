@@ -23,11 +23,17 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Root route
 app.get('/', (req, res) => {
-  res.send('E-commerce backend is running');
+  res.json({ message: 'E-commerce backend is running' });
 });
 
 app.use('/api/products', productsRouter);
 app.use('/api/auth', authRouter);
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
 
 // Start server
 app.listen(PORT, () => {
