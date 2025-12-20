@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors - Commercial Blue Theme -->
+    <color name="primary">#2563EB</color>
+    <color name="primary_dark">#1D4ED8</color>
+    <color name="primary_light">#DBEAFE</color>
+    
+    <!-- Accent Colors - Clean Blue Tones -->
+    <color name="secondary">#0EA5E9</color>
+    <color name="secondary_dark">#0284C7</color>
+    
+    <!-- Background Colors - Clean White Theme -->
+    <color name="background">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_secondary">#F8FAFC</color>
+    <color name="surface_dark">#0F172A</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_hint">#94A3B8</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#16A34A</color>
+    <color name="success_light">#DCFCE7</color>
+    <color name="error">#DC2626</color>
+    <color name="error_light">#FEE2E2</color>
+    <color name="warning">#D97706</color>
+    <color name="warning_light">#FEF3C7</color>
+    <color name="info">#2563EB</color>
+    <color name="info_light">#DBEAFE</color>
+    
+    <!-- Borders and Dividers -->
+    <color name="divider">#E2E8F0</color>
+    <color name="border">#CBD5E1</color>
+    
+    <!-- Common -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    
+    <!-- Card and Shadow -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="shadow">#1E293B</color>
+</resources>
