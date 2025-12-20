@@ -106,6 +106,8 @@ id continueShoppingButton
 id creditCardRadio
 id debitCardRadio
 id decreaseButton
+id demoOtpCard
+id demoOtpText
 id discountBadge
 id discountRow
 id discountText
@@ -144,6 +146,8 @@ id lastNameLayout
 id line1
 id line2
 id loginButton
+id loginLink
+id loginLinkContainer
 id logo
 id logoIcon
 id logoutButton
@@ -158,6 +162,8 @@ id navigation_cart
 id navigation_home
 id navigation_products
 id navigation_profile
+id newPasswordInput
+id newPasswordInputLayout
 id newsletterButton
 id newsletterInput
 id nextButton
@@ -165,6 +171,11 @@ id notificationsItem
 id orderSummaryCard
 id ordersItem
 id originalPrice
+id otpInput
+id otpInputLayout
+id otpSentText
+id pageSubtitle
+id pageTitle
 id passwordInput
 id passwordInputLayout
 id paymentCard
@@ -194,6 +205,8 @@ id registerTitle
 id rememberMeCheckbox
 id removeButton
 id removePromoButton
+id resendOtpLink
+id resetPasswordButton
 id resultsCountText
 id retryButton
 id reviewCard
@@ -202,6 +215,7 @@ id reviewShippingAddress
 id reviewTotal
 id searchInput
 id searchInputLayout
+id sendOtpButton
 id settingsItem
 id shareButton
 id shippingCard
@@ -216,11 +230,18 @@ id sortSpinner
 id stateInput
 id stateLayout
 id step1
+id step1Indicator
+id step1Progress
 id step2
+id step2Indicator
 id step3
+id step3Indicator
+id step3Progress
 id stepIndicator
 id stockStatus
 id subtotalText
+id successCard
+id successText
 id swipeRefreshLayout
 id tagline
 id taxText
@@ -234,8 +255,10 @@ id userInfoCard
 id userInitial
 id userName
 id userRole
+id verifyOtpButton
 id viewAllProductsLink
 id viewDealsButton
+id viewFlipper
 id welcomeSubtitle
 id welcomeTitle
 id wishlistButton
@@ -243,6 +266,7 @@ id wishlistItem
 id zipInput
 id zipLayout
 layout activity_checkout
+layout activity_forgot_password
 layout activity_login
 layout activity_main
 layout activity_product_detail

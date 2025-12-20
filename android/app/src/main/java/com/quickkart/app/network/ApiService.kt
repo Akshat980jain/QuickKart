@@ -1,9 +1,13 @@
 package com.quickkart.app.network
 
 import com.quickkart.app.models.AuthResponse
+import com.quickkart.app.models.ForgotPasswordRequest
+import com.quickkart.app.models.ForgotPasswordResponse
 import com.quickkart.app.models.LoginRequest
 import com.quickkart.app.models.Product
 import com.quickkart.app.models.RegisterRequest
+import com.quickkart.app.models.ResetPasswordRequest
+import com.quickkart.app.models.ResetPasswordResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -19,17 +23,16 @@ interface ApiService {
     @POST("api/auth/register")
     suspend fun register(@Body request: RegisterRequest): Response<AuthResponse>
     
+    @POST("api/auth/forgot-password")
+    suspend fun forgotPassword(@Body request: ForgotPasswordRequest): Response<ForgotPasswordResponse>
+    
+    @POST("api/auth/reset-password")
+    suspend fun resetPassword(@Body request: ResetPasswordRequest): Response<ResetPasswordResponse>
+    
     // Product Endpoints
     @GET("api/products")
     suspend fun getProducts(): Response<List<Product>>
     
     @GET("api/products/{id}")
     suspend fun getProduct(@Path("id") id: String): Response<Product>
-    
-    // You can add more endpoints as needed
-    // @GET("api/orders")
-    // suspend fun getOrders(): Response<List<Order>>
-    
-    // @POST("api/orders")
-    // suspend fun createOrder(@Body order: Order): Response<Order>
 }

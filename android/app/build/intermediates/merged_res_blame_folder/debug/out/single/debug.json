@@ -160,12 +160,12 @@
         "source": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_visibility_off.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_checkout.xml.flat",
-        "source": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_checkout.xml"
+        "merged": "com.quickkart.app-merged_res-51:/layout_activity_forgot_password.xml.flat",
+        "source": "com.quickkart.app-main-53:/layout/activity_forgot_password.xml"
     },
     {
-        "merged": "com.quickkart.app-merged_res-51:/layout_activity_register.xml.flat",
-        "source": "com.quickkart.app-main-53:/layout/activity_register.xml"
+        "merged": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_checkout.xml.flat",
+        "source": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_checkout.xml"
     },
     {
         "merged": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_home.xml.flat",
@@ -238,10 +238,6 @@
     {
         "merged": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_package.xml.flat",
         "source": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_package.xml"
-    },
-    {
-        "merged": "com.quickkart.app-merged_res-51:/layout_activity_login.xml.flat",
-        "source": "com.quickkart.app-main-53:/layout/activity_login.xml"
     },
     {
         "merged": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_cart.xml.flat",

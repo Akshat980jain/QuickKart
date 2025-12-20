@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         binding.signUpContainer.setOnClickListener(navigateToRegister)
         
         binding.forgotPasswordLink.setOnClickListener {
-            Snackbar.make(binding.root, "Forgot password feature coming soon", Snackbar.LENGTH_SHORT).show()
+            startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java))
         }
         
         binding.googleButton.setOnClickListener {

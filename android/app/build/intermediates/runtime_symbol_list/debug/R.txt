@@ -3370,6 +3370,8 @@ int id decor_content_parent 0x7f0800ad
 int id decreaseButton 0x7f0800ae
 int id default_activity_button 0x7f0800af
 int id deltaRelative 0x7f0800b0
+int id demoOtpCard 0x7f0802a3
+int id demoOtpText 0x7f0802a4
 int id dependency_ordering 0x7f0800b1
 int id design_bottom_sheet 0x7f0800b2
 int id design_menu_item_action_area 0x7f0800b3
@@ -3507,6 +3509,8 @@ int id listMode 0x7f080136
 int id list_item 0x7f080137
 int id locale 0x7f080138
 int id loginButton 0x7f080139
+int id loginLink 0x7f0802a5
+int id loginLinkContainer 0x7f0802a6
 int id logo 0x7f08013a
 int id logoIcon 0x7f08013b
 int id logoutButton 0x7f08013c
@@ -3594,6 +3598,8 @@ int id navigation_profile 0x7f08018d
 int id never 0x7f08018e
 int id neverCompleteToEnd 0x7f08018f
 int id neverCompleteToStart 0x7f080190
+int id newPasswordInput 0x7f0802a7
+int id newPasswordInputLayout 0x7f0802a8
 int id newsletterButton 0x7f080191
 int id newsletterInput 0x7f080192
 int id nextButton 0x7f080193
@@ -3626,10 +3632,15 @@ int id open_search_view_toolbar_container 0x7f0801ad
 int id orderSummaryCard 0x7f0801ae
 int id ordersItem 0x7f0801af
 int id originalPrice 0x7f0801b0
+int id otpInput 0x7f0802a9
+int id otpInputLayout 0x7f0802aa
+int id otpSentText 0x7f0802ab
 int id outline 0x7f0801b1
 int id outward 0x7f0801b2
 int id overshoot 0x7f0801b3
 int id packed 0x7f0801b4
+int id pageSubtitle 0x7f0802ac
+int id pageTitle 0x7f0802ad
 int id parallax 0x7f0801b5
 int id parent 0x7f0801b6
 int id parentPanel 0x7f0801b7
@@ -3680,6 +3691,8 @@ int id rememberMeCheckbox 0x7f0801e3
 int id removeButton 0x7f0801e4
 int id removePromoButton 0x7f0801e5
 int id report_drawn 0x7f0801e6
+int id resendOtpLink 0x7f0802ae
+int id resetPasswordButton 0x7f0802af
 int id resultsCountText 0x7f0801e7
 int id retryButton 0x7f0801e8
 int id reverseSawtooth 0x7f0801e9
@@ -3719,6 +3732,7 @@ int id search_voice_btn 0x7f08020a
 int id select_dialog_listview 0x7f08020b
 int id selected 0x7f08020c
 int id selection_type 0x7f08020d
+int id sendOtpButton 0x7f0802b0
 int id settingsItem 0x7f08020e
 int id shareButton 0x7f08020f
 int id sharedValueSet 0x7f080210
@@ -3768,8 +3782,13 @@ int id stateLayout 0x7f08023b
 int id staticLayout 0x7f08023c
 int id staticPostLayout 0x7f08023d
 int id step1 0x7f08023e
+int id step1Indicator 0x7f0802b1
+int id step1Progress 0x7f0802b2
 int id step2 0x7f08023f
+int id step2Indicator 0x7f0802b3
 int id step3 0x7f080240
+int id step3Indicator 0x7f0802b4
+int id step3Progress 0x7f0802b5
 int id stepIndicator 0x7f080241
 int id stockStatus 0x7f080242
 int id stop 0x7f080243
@@ -3777,6 +3796,8 @@ int id stretch 0x7f080244
 int id submenuarrow 0x7f080245
 int id submit_area 0x7f080246
 int id subtotalText 0x7f080247
+int id successCard 0x7f0802b6
+int id successText 0x7f0802b7
 int id supportScrollUp 0x7f080248
 int id swipeRefreshLayout 0x7f080249
 int id tabMode 0x7f08024a
@@ -3842,9 +3863,11 @@ int id userInfoCard 0x7f080285
 int id userInitial 0x7f080286
 int id userName 0x7f080287
 int id userRole 0x7f080288
+int id verifyOtpButton 0x7f0802b8
 int id vertical_only 0x7f080289
 int id viewAllProductsLink 0x7f08028a
 int id viewDealsButton 0x7f08028b
+int id viewFlipper 0x7f0802b9
 int id view_offset_helper 0x7f08028c
 int id view_transition 0x7f08028d
 int id view_tree_lifecycle_owner 0x7f08028e
@@ -3984,6 +4007,7 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_checkout 0x7f0b001c
+int layout activity_forgot_password 0x7f0b0079
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
 int layout activity_product_detail 0x7f0b001f

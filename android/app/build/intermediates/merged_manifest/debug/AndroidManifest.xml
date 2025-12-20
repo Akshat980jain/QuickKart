@@ -55,6 +55,12 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Forgot Password Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.ForgotPasswordActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
         <!-- Main Activity -->
         <activity
             android:name="com.quickkart.app.activities.MainActivity"

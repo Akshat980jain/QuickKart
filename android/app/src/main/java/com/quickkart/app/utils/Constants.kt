@@ -1,7 +1,9 @@
 package com.quickkart.app.utils
 
 object Constants {
-    const val BASE_URL = "https://quickkart-b0yb.onrender.com/"
+    // Use local server IP for testing (change back to Render URL for production)
+    const val BASE_URL = "http://192.168.1.16:5000/"
+    // const val BASE_URL = "https://quickkart-b0yb.onrender.com/"
     
     // Intent Extras
     const val EXTRA_PRODUCT = "product"

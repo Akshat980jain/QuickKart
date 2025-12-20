@@ -3371,6 +3371,8 @@ id decor_content_parent
 id decreaseButton
 id default_activity_button
 id deltaRelative
+id demoOtpCard
+id demoOtpText
 id dependency_ordering
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -3508,6 +3510,8 @@ id listMode
 id list_item
 id locale
 id loginButton
+id loginLink
+id loginLinkContainer
 id logo
 id logoIcon
 id logoutButton
@@ -3595,6 +3599,8 @@ id navigation_profile
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newPasswordInput
+id newPasswordInputLayout
 id newsletterButton
 id newsletterInput
 id nextButton
@@ -3627,10 +3633,15 @@ id open_search_view_toolbar_container
 id orderSummaryCard
 id ordersItem
 id originalPrice
+id otpInput
+id otpInputLayout
+id otpSentText
 id outline
 id outward
 id overshoot
 id packed
+id pageSubtitle
+id pageTitle
 id parallax
 id parent
 id parentPanel
@@ -3681,6 +3692,8 @@ id rememberMeCheckbox
 id removeButton
 id removePromoButton
 id report_drawn
+id resendOtpLink
+id resetPasswordButton
 id resultsCountText
 id retryButton
 id reverseSawtooth
@@ -3720,6 +3733,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id sendOtpButton
 id settingsItem
 id shareButton
 id sharedValueSet
@@ -3769,8 +3783,13 @@ id stateLayout
 id staticLayout
 id staticPostLayout
 id step1
+id step1Indicator
+id step1Progress
 id step2
+id step2Indicator
 id step3
+id step3Indicator
+id step3Progress
 id stepIndicator
 id stockStatus
 id stop
@@ -3778,6 +3797,8 @@ id stretch
 id submenuarrow
 id submit_area
 id subtotalText
+id successCard
+id successText
 id supportScrollUp
 id swipeRefreshLayout
 id tabMode
@@ -3843,9 +3864,11 @@ id userInfoCard
 id userInitial
 id userName
 id userRole
+id verifyOtpButton
 id vertical_only
 id viewAllProductsLink
 id viewDealsButton
+id viewFlipper
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3985,6 +4008,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_checkout
+layout activity_forgot_password
 layout activity_login
 layout activity_main
 layout activity_product_detail
