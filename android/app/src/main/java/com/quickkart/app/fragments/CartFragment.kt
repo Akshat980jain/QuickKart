@@ -7,11 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.quickkart.app.R
 import com.quickkart.app.activities.CheckoutActivity
+import com.quickkart.app.activities.LoginActivity
+import com.quickkart.app.activities.RegisterActivity
 import com.quickkart.app.adapters.CartAdapter
 import com.quickkart.app.databinding.FragmentCartBinding
+import com.quickkart.app.managers.AuthManager
 import com.quickkart.app.managers.CartManager
 import com.quickkart.app.utils.formatPrice
 import com.quickkart.app.utils.gone
@@ -38,9 +42,56 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Check if user is logged in
+        if (!AuthManager.isLoggedIn) {
+            showLoginRequiredState()
+            return
+        }
+        
         setupRecyclerView()
         setupClickListeners()
         observeCart()
+    }
+    
+    override fun onResume() {
+        super.onResume()
+        // Recheck login state when returning to fragment
+        if (!AuthManager.isLoggedIn) {
+            showLoginRequiredState()
+        } else if (!::cartAdapter.isInitialized) {
+            // User just logged in, set up cart
+            setupRecyclerView()
+            setupClickListeners()
+            observeCart()
+        }
+    }
+    
+    private fun showLoginRequiredState() {
+        binding.cartContentLayout.gone()
+        binding.emptyCartLayout.visible()
+        binding.emptyCartIcon.setImageResource(R.drawable.ic_person)
+        binding.emptyCartTitle.text = "Login Required"
+        binding.emptyCartMessage.text = "Please login or sign up to view and manage your cart"
+        binding.continueShoppingButton.text = "Login"
+        binding.continueShoppingButton.setOnClickListener {
+            showLoginDialog()
+        }
+    }
+    
+    private fun showLoginDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Login Required")
+            .setMessage("Please login or sign up to use your cart")
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNeutralButton("Sign Up") { _, _ ->
+                startActivity(Intent(requireContext(), RegisterActivity::class.java))
+            }
+            .setPositiveButton("Login") { _, _ ->
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+            }
+            .show()
     }
     
     private fun setupRecyclerView() {

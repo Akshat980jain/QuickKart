@@ -4,7 +4,7 @@
             "outputFile": "com.quickkart.app-mergeDebugResources-49:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hp\\Downloads\\gradle-9.2.1-bin\\caches\\transforms-4\\7ff09a513888b55c4361eba8eb56767b\\transformed\\appcompat-1.6.1\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\transforms-4\\7ff09a513888b55c4361eba8eb56767b\\transformed\\appcompat-1.6.1\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

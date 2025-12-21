@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-69:12
+ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-99:12
+INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:2:1-99:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\hp\Downloads\gradle-9.2.1-bin\caches\transforms-4\5671063f35867fea2f15b9469215b41e\transformed\viewbinding-8.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.6] C:\Users\hp\Downloads\gradle-9.2.1-bin\caches\transforms-4\c08c0f5e91899a8d03b3d4163843fba1\transformed\navigation-common-2.7.6\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] C:\Users\hp\Downloads\gradle-9.2.1-bin\caches\transforms-4\711fd8515acad9b24e0dd7236ad62103\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
@@ -87,8 +87,8 @@ ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:6:5-79
 	android:name
 		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:8:5-67:19
-INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:8:5-67:19
+ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:8:5-97:19
+INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:8:5-97:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\hp\Downloads\gradle-9.2.1-bin\caches\transforms-4\122703e10dc46399ad1e8f9364875c82\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\hp\Downloads\gradle-9.2.1-bin\caches\transforms-4\122703e10dc46399ad1e8f9364875c82\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\hp\Downloads\gradle-9.2.1-bin\caches\transforms-4\0e1c075e1baa4361b3848a4b6ad9f429\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -197,6 +197,50 @@ ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:61:9-6
 		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:63:13-37
 	android:name
 		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:62:13-56
+activity#com.quickkart.app.activities.OrderSuccessActivity
+ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:68:9-72:54
+	android:parentActivityName
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:71:13-66
+	android:exported
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:70:13-37
+	android:theme
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:72:13-51
+	android:name
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:69:13-60
+activity#com.quickkart.app.activities.OrdersActivity
+ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:75:9-79:54
+	android:parentActivityName
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:78:13-66
+	android:exported
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:77:13-37
+	android:theme
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:79:13-51
+	android:name
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:76:13-54
+activity#com.quickkart.app.activities.CancelReturnActivity
+ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:82:9-87:58
+	android:parentActivityName
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:85:13-68
+	android:windowSoftInputMode
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:87:13-55
+	android:exported
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:84:13-37
+	android:theme
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:86:13-51
+	android:name
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:83:13-60
+activity#com.quickkart.app.activities.SearchActivity
+ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:90:9-95:58
+	android:parentActivityName
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:93:13-66
+	android:windowSoftInputMode
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:95:13-55
+	android:exported
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:92:13-37
+	android:theme
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:94:13-51
+	android:name
+		ADDED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml:91:13-54
 uses-sdk
 INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\QuickKart App Bolt\android\app\src\main\AndroidManifest.xml

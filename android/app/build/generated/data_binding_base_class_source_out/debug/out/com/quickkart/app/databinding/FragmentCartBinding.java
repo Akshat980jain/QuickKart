@@ -4,6 +4,7 @@ package com.quickkart.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -61,7 +62,16 @@ public final class FragmentCartBinding implements ViewBinding {
   public final TextView discountText;
 
   @NonNull
+  public final ImageView emptyCartIcon;
+
+  @NonNull
   public final LinearLayout emptyCartLayout;
+
+  @NonNull
+  public final TextView emptyCartMessage;
+
+  @NonNull
+  public final TextView emptyCartTitle;
 
   @NonNull
   public final MaterialCardView freeShippingNotice;
@@ -100,11 +110,13 @@ public final class FragmentCartBinding implements ViewBinding {
       @NonNull TextView cartSubtitle, @NonNull TextView cartTitle,
       @NonNull MaterialButton checkoutButton, @NonNull MaterialButton continueShoppingButton,
       @NonNull LinearLayout discountRow, @NonNull TextView discountText,
-      @NonNull LinearLayout emptyCartLayout, @NonNull MaterialCardView freeShippingNotice,
-      @NonNull TextView freeShippingText, @NonNull MaterialCardView orderSummaryCard,
-      @NonNull TextInputEditText promoCodeInput, @NonNull LinearLayout promoInputLayout,
-      @NonNull TextView removePromoButton, @NonNull TextView shippingText,
-      @NonNull TextView subtotalText, @NonNull TextView taxText, @NonNull TextView totalText) {
+      @NonNull ImageView emptyCartIcon, @NonNull LinearLayout emptyCartLayout,
+      @NonNull TextView emptyCartMessage, @NonNull TextView emptyCartTitle,
+      @NonNull MaterialCardView freeShippingNotice, @NonNull TextView freeShippingText,
+      @NonNull MaterialCardView orderSummaryCard, @NonNull TextInputEditText promoCodeInput,
+      @NonNull LinearLayout promoInputLayout, @NonNull TextView removePromoButton,
+      @NonNull TextView shippingText, @NonNull TextView subtotalText, @NonNull TextView taxText,
+      @NonNull TextView totalText) {
     this.rootView = rootView;
     this.appliedPromoCard = appliedPromoCard;
     this.appliedPromoText = appliedPromoText;
@@ -118,7 +130,10 @@ public final class FragmentCartBinding implements ViewBinding {
     this.continueShoppingButton = continueShoppingButton;
     this.discountRow = discountRow;
     this.discountText = discountText;
+    this.emptyCartIcon = emptyCartIcon;
     this.emptyCartLayout = emptyCartLayout;
+    this.emptyCartMessage = emptyCartMessage;
+    this.emptyCartTitle = emptyCartTitle;
     this.freeShippingNotice = freeShippingNotice;
     this.freeShippingText = freeShippingText;
     this.orderSummaryCard = orderSummaryCard;
@@ -230,9 +245,27 @@ public final class FragmentCartBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.emptyCartIcon;
+      ImageView emptyCartIcon = ViewBindings.findChildViewById(rootView, id);
+      if (emptyCartIcon == null) {
+        break missingId;
+      }
+
       id = R.id.emptyCartLayout;
       LinearLayout emptyCartLayout = ViewBindings.findChildViewById(rootView, id);
       if (emptyCartLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.emptyCartMessage;
+      TextView emptyCartMessage = ViewBindings.findChildViewById(rootView, id);
+      if (emptyCartMessage == null) {
+        break missingId;
+      }
+
+      id = R.id.emptyCartTitle;
+      TextView emptyCartTitle = ViewBindings.findChildViewById(rootView, id);
+      if (emptyCartTitle == null) {
         break missingId;
       }
 
@@ -299,9 +332,9 @@ public final class FragmentCartBinding implements ViewBinding {
       return new FragmentCartBinding((ConstraintLayout) rootView, appliedPromoCard,
           appliedPromoText, applyPromoButton, cartContentLayout, cartHeader, cartRecycler,
           cartSubtitle, cartTitle, checkoutButton, continueShoppingButton, discountRow,
-          discountText, emptyCartLayout, freeShippingNotice, freeShippingText, orderSummaryCard,
-          promoCodeInput, promoInputLayout, removePromoButton, shippingText, subtotalText, taxText,
-          totalText);
+          discountText, emptyCartIcon, emptyCartLayout, emptyCartMessage, emptyCartTitle,
+          freeShippingNotice, freeShippingText, orderSummaryCard, promoCodeInput, promoInputLayout,
+          removePromoButton, shippingText, subtotalText, taxText, totalText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

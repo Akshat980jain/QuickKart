@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.quickkart.app.R
 import com.quickkart.app.databinding.ActivityProductDetailBinding
+import com.quickkart.app.managers.AuthManager
 import com.quickkart.app.managers.CartManager
 import com.quickkart.app.models.Product
 import com.quickkart.app.network.RetrofitClient
@@ -57,6 +59,10 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         binding.addToCartButton.setOnClickListener {
+            if (!AuthManager.isLoggedIn) {
+                showLoginRequiredDialog()
+                return@setOnClickListener
+            }
             product?.let { p ->
                 CartManager.addToCart(p)
                 Snackbar.make(binding.root, "Added to cart!", Snackbar.LENGTH_SHORT).show()
@@ -135,5 +141,21 @@ class ProductDetailActivity : AppCompatActivity() {
             .load(product.image)
             .placeholder(R.drawable.placeholder_image)
             .into(binding.productImage)
+    }
+    
+    private fun showLoginRequiredDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Login Required")
+            .setMessage("Please login or sign up to add items to your cart")
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNeutralButton("Sign Up") { _, _ ->
+                startActivity(Intent(this, RegisterActivity::class.java))
+            }
+            .setPositiveButton("Login") { _, _ ->
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+            .show()
     }
 }

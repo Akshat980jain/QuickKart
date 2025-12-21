@@ -10,10 +10,14 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.quickkart.app.R
+import com.quickkart.app.activities.LoginActivity
 import com.quickkart.app.activities.ProductDetailActivity
+import com.quickkart.app.activities.RegisterActivity
 import com.quickkart.app.adapters.ProductAdapter
 import com.quickkart.app.databinding.FragmentProductsBinding
+import com.quickkart.app.managers.AuthManager
 import com.quickkart.app.managers.CartManager
 import com.quickkart.app.models.Product
 import com.quickkart.app.network.RetrofitClient
@@ -64,6 +68,10 @@ class ProductsFragment : Fragment() {
                 startActivity(intent)
             },
             onAddToCart = { product ->
+                if (!AuthManager.isLoggedIn) {
+                    showLoginRequiredDialog()
+                    return@ProductAdapter
+                }
                 CartManager.addToCart(product)
                 requireContext().showToast("${product.name} added to cart")
             }
@@ -232,5 +240,21 @@ class ProductsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    
+    private fun showLoginRequiredDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Login Required")
+            .setMessage("Please login or sign up to add items to your cart")
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNeutralButton("Sign Up") { _, _ ->
+                startActivity(Intent(requireContext(), RegisterActivity::class.java))
+            }
+            .setPositiveButton("Login") { _, _ ->
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+            }
+            .show()
     }
 }

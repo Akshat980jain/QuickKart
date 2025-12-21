@@ -206,13 +206,25 @@ class CheckoutActivity : AppCompatActivity() {
         binding.nextButton.text = "Processing..."
         binding.progressBar.visibility = View.VISIBLE
         
+        // Get order details before clearing cart
+        val totalAmount = CartManager.getOrderTotal()
+        val paymentMethod = when (binding.paymentMethodGroup.checkedRadioButtonId) {
+            R.id.creditCardRadio -> "Credit Card"
+            R.id.debitCardRadio -> "Debit Card"
+            R.id.upiRadio -> "UPI"
+            R.id.codRadio -> "Cash on Delivery"
+            else -> "Card"
+        }
+        
         // Simulate order processing
         binding.root.postDelayed({
             CartManager.clearCart()
             
-            val intent = Intent(this, MainActivity::class.java).apply {
+            // Navigate to Order Success screen with order data
+            val intent = Intent(this, OrderSuccessActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                putExtra("show_order_success", true)
+                putExtra("total_amount", totalAmount)
+                putExtra("payment_method", paymentMethod)
             }
             startActivity(intent)
             finish()

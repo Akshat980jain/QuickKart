@@ -64,6 +64,36 @@
             android:parentActivityName=".activities.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Order Success Activity -->
+        <activity
+            android:name=".activities.OrderSuccessActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Orders Activity -->
+        <activity
+            android:name=".activities.OrdersActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Cancel/Return Activity -->
+        <activity
+            android:name=".activities.CancelReturnActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.OrdersActivity"
+            android:theme="@style/Theme.QuickKart"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Search Activity -->
+        <activity
+            android:name=".activities.SearchActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

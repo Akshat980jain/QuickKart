@@ -4,6 +4,7 @@ package com.quickkart.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.quickkart.app.R;
 import java.lang.NullPointerException;
@@ -27,6 +29,9 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final AppBarLayout appBarLayout;
+
+  @NonNull
+  public final ImageView cameraButton;
 
   @NonNull
   public final RecyclerView categoriesRecycler;
@@ -44,6 +49,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final MaterialButton loginButton;
 
   @NonNull
+  public final ImageView micButton;
+
+  @NonNull
   public final MaterialButton newsletterButton;
 
   @NonNull
@@ -54,6 +62,9 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final ProgressBar productsProgressBar;
+
+  @NonNull
+  public final MaterialCardView searchBar;
 
   @NonNull
   public final MaterialButton shopNowButton;
@@ -68,24 +79,29 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final MaterialButton viewDealsButton;
 
   private FragmentHomeBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull AppBarLayout appBarLayout, @NonNull RecyclerView categoriesRecycler,
-      @NonNull RecyclerView featuredProductsRecycler, @NonNull TextView heroSubtitle,
-      @NonNull TextView heroTitle, @NonNull MaterialButton loginButton,
+      @NonNull AppBarLayout appBarLayout, @NonNull ImageView cameraButton,
+      @NonNull RecyclerView categoriesRecycler, @NonNull RecyclerView featuredProductsRecycler,
+      @NonNull TextView heroSubtitle, @NonNull TextView heroTitle,
+      @NonNull MaterialButton loginButton, @NonNull ImageView micButton,
       @NonNull MaterialButton newsletterButton, @NonNull TextInputEditText newsletterInput,
       @NonNull TextView productsErrorText, @NonNull ProgressBar productsProgressBar,
-      @NonNull MaterialButton shopNowButton, @NonNull SwipeRefreshLayout swipeRefreshLayout,
-      @NonNull TextView viewAllProductsLink, @NonNull MaterialButton viewDealsButton) {
+      @NonNull MaterialCardView searchBar, @NonNull MaterialButton shopNowButton,
+      @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull TextView viewAllProductsLink,
+      @NonNull MaterialButton viewDealsButton) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
+    this.cameraButton = cameraButton;
     this.categoriesRecycler = categoriesRecycler;
     this.featuredProductsRecycler = featuredProductsRecycler;
     this.heroSubtitle = heroSubtitle;
     this.heroTitle = heroTitle;
     this.loginButton = loginButton;
+    this.micButton = micButton;
     this.newsletterButton = newsletterButton;
     this.newsletterInput = newsletterInput;
     this.productsErrorText = productsErrorText;
     this.productsProgressBar = productsProgressBar;
+    this.searchBar = searchBar;
     this.shopNowButton = shopNowButton;
     this.swipeRefreshLayout = swipeRefreshLayout;
     this.viewAllProductsLink = viewAllProductsLink;
@@ -125,6 +141,12 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.cameraButton;
+      ImageView cameraButton = ViewBindings.findChildViewById(rootView, id);
+      if (cameraButton == null) {
+        break missingId;
+      }
+
       id = R.id.categoriesRecycler;
       RecyclerView categoriesRecycler = ViewBindings.findChildViewById(rootView, id);
       if (categoriesRecycler == null) {
@@ -155,6 +177,12 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.micButton;
+      ImageView micButton = ViewBindings.findChildViewById(rootView, id);
+      if (micButton == null) {
+        break missingId;
+      }
+
       id = R.id.newsletterButton;
       MaterialButton newsletterButton = ViewBindings.findChildViewById(rootView, id);
       if (newsletterButton == null) {
@@ -176,6 +204,12 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.productsProgressBar;
       ProgressBar productsProgressBar = ViewBindings.findChildViewById(rootView, id);
       if (productsProgressBar == null) {
+        break missingId;
+      }
+
+      id = R.id.searchBar;
+      MaterialCardView searchBar = ViewBindings.findChildViewById(rootView, id);
+      if (searchBar == null) {
         break missingId;
       }
 
@@ -203,10 +237,10 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((CoordinatorLayout) rootView, appBarLayout, categoriesRecycler,
-          featuredProductsRecycler, heroSubtitle, heroTitle, loginButton, newsletterButton,
-          newsletterInput, productsErrorText, productsProgressBar, shopNowButton,
-          swipeRefreshLayout, viewAllProductsLink, viewDealsButton);
+      return new FragmentHomeBinding((CoordinatorLayout) rootView, appBarLayout, cameraButton,
+          categoriesRecycler, featuredProductsRecycler, heroSubtitle, heroTitle, loginButton,
+          micButton, newsletterButton, newsletterInput, productsErrorText, productsProgressBar,
+          searchBar, shopNowButton, swipeRefreshLayout, viewAllProductsLink, viewDealsButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

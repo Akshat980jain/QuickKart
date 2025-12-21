@@ -80,6 +80,36 @@
             android:parentActivityName="com.quickkart.app.activities.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Order Success Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.OrderSuccessActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Orders Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.OrdersActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Cancel/Return Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.CancelReturnActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.OrdersActivity"
+            android:theme="@style/Theme.QuickKart"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Search Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.SearchActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart"
+            android:windowSoftInputMode="adjustResize" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.quickkart.app.androidx-startup"

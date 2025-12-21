@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.quickkart.app.activities.LoginActivity
+import com.quickkart.app.activities.OrdersActivity
 import com.quickkart.app.activities.RegisterActivity
 import com.quickkart.app.databinding.FragmentProfileBinding
 import com.quickkart.app.managers.AuthManager
@@ -93,11 +94,8 @@ class ProfileFragment : Fragment() {
         
         // Menu items - access the root view of each include
         binding.ordersItem.root.setOnClickListener {
-            if (!AuthManager.isLoggedIn) {
-                promptLogin("view orders")
-                return@setOnClickListener
-            }
-            // Navigate to orders
+            // Navigate to orders (allow guests too so they can see empty state)
+            startActivity(Intent(requireContext(), OrdersActivity::class.java))
         }
         
         binding.wishlistItem.root.setOnClickListener {

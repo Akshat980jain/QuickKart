@@ -40,4 +40,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    
+    fun navigateToHome() {
+        binding.bottomNavigation.selectedItemId = R.id.navigation_home
+    }
 }

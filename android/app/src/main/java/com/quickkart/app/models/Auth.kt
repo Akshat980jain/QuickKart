@@ -2,7 +2,7 @@ package com.quickkart.app.models
 
 import com.google.gson.annotations.SerializedName
 
-data class AuthResponse(
+data class  AuthResponse(
     val token: String = "",
     val user: User = User(),
     val message: String? = null

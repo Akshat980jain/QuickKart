@@ -21,6 +21,11 @@
         android:label="Cart" />
 
     <fragment
+        android:id="@+id/navigation_orders"
+        android:name="com.quickkart.app.fragments.OrdersFragment"
+        android:label="Orders" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.quickkart.app.fragments.ProfileFragment"
         android:label="Profile" />

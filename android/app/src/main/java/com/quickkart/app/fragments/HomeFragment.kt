@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.quickkart.app.R
 import com.quickkart.app.activities.LoginActivity
 import com.quickkart.app.activities.ProductDetailActivity
+import com.quickkart.app.activities.RegisterActivity
+import com.quickkart.app.activities.SearchActivity
 import com.quickkart.app.adapters.CategoryAdapter
 import com.quickkart.app.adapters.ProductAdapter
 import com.quickkart.app.databinding.FragmentHomeBinding
@@ -75,6 +78,10 @@ class HomeFragment : Fragment() {
                 startActivity(intent)
             },
             onAddToCart = { product ->
+                if (!AuthManager.isLoggedIn) {
+                    showLoginRequiredDialog()
+                    return@ProductAdapter
+                }
                 CartManager.addToCart(product)
                 requireContext().showToast("${product.name} added to cart")
             }
@@ -139,6 +146,19 @@ class HomeFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             loadFeaturedProducts()
         }
+        
+        // Search bar click listeners
+        binding.searchBar.setOnClickListener {
+            startActivity(Intent(requireContext(), SearchActivity::class.java))
+        }
+        
+        binding.micButton.setOnClickListener {
+            requireContext().showToast("Voice search coming soon!")
+        }
+        
+        binding.cameraButton.setOnClickListener {
+            requireContext().showToast("Image search coming soon!")
+        }
     }
     
     private fun loadFeaturedProducts() {
@@ -182,6 +202,22 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    
+    private fun showLoginRequiredDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Login Required")
+            .setMessage("Please login or sign up to add items to your cart")
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNeutralButton("Sign Up") { _, _ ->
+                startActivity(Intent(requireContext(), RegisterActivity::class.java))
+            }
+            .setPositiveButton("Login") { _, _ ->
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+            }
+            .show()
     }
 }
 
