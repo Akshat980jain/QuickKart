@@ -10,6 +10,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.quickkart.app.activities.LoginActivity
 import com.quickkart.app.activities.OrdersActivity
 import com.quickkart.app.activities.RegisterActivity
+import com.quickkart.app.activities.SettingsActivity
+import com.quickkart.app.activities.WishlistActivity
 import com.quickkart.app.databinding.FragmentProfileBinding
 import com.quickkart.app.managers.AuthManager
 
@@ -99,11 +101,8 @@ class ProfileFragment : Fragment() {
         }
         
         binding.wishlistItem.root.setOnClickListener {
-            if (!AuthManager.isLoggedIn) {
-                promptLogin("view wishlist")
-                return@setOnClickListener
-            }
-            // Navigate to wishlist
+            // Navigate to wishlist (allow guests too)
+            startActivity(Intent(requireContext(), WishlistActivity::class.java))
         }
         
         binding.paymentsItem.root.setOnClickListener {
@@ -119,7 +118,7 @@ class ProfileFragment : Fragment() {
         }
         
         binding.settingsItem.root.setOnClickListener {
-            // Navigate to settings
+            startActivity(Intent(requireContext(), SettingsActivity::class.java))
         }
         
         binding.helpItem.root.setOnClickListener {

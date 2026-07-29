@@ -4,6 +4,7 @@ package com.quickkart.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -49,11 +50,15 @@ public final class ItemProductBinding implements ViewBinding {
   @NonNull
   public final TextView ratingText;
 
+  @NonNull
+  public final ImageButton wishlistButton;
+
   private ItemProductBinding(@NonNull MaterialCardView rootView,
       @NonNull MaterialButton addToCartButton, @NonNull TextView discountBadge,
       @NonNull TextView originalPrice, @NonNull TextView productCategory,
       @NonNull ImageView productImage, @NonNull TextView productName,
-      @NonNull TextView productPrice, @NonNull RatingBar ratingBar, @NonNull TextView ratingText) {
+      @NonNull TextView productPrice, @NonNull RatingBar ratingBar, @NonNull TextView ratingText,
+      @NonNull ImageButton wishlistButton) {
     this.rootView = rootView;
     this.addToCartButton = addToCartButton;
     this.discountBadge = discountBadge;
@@ -64,6 +69,7 @@ public final class ItemProductBinding implements ViewBinding {
     this.productPrice = productPrice;
     this.ratingBar = ratingBar;
     this.ratingText = ratingText;
+    this.wishlistButton = wishlistButton;
   }
 
   @Override
@@ -147,9 +153,15 @@ public final class ItemProductBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.wishlistButton;
+      ImageButton wishlistButton = ViewBindings.findChildViewById(rootView, id);
+      if (wishlistButton == null) {
+        break missingId;
+      }
+
       return new ItemProductBinding((MaterialCardView) rootView, addToCartButton, discountBadge,
           originalPrice, productCategory, productImage, productName, productPrice, ratingBar,
-          ratingText);
+          ratingText, wishlistButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

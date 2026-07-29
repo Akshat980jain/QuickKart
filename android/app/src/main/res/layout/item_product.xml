@@ -24,6 +24,19 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
 
+            <!-- Wishlist Heart Button -->
+            <ImageButton
+                android:id="@+id/wishlistButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/circle_background_white"
+                android:padding="6dp"
+                android:src="@drawable/ic_heart_outline"
+                app:tint="@color/text_hint"
+                android:contentDescription="Add to wishlist" />
+
             <!-- Discount Badge -->
             <TextView
                 android:id="@+id/discountBadge"

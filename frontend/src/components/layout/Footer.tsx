@@ -1,120 +1,122 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ShoppingBag, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
+  Instagram, 
   Twitter, 
-  Instagram 
+  Facebook, 
+  ArrowRight,
+  ShieldCheck,
+  Truck,
+  RotateCcw,
+  Headphones
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-white pt-12 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div>
-            <Link to="/" className="text-xl font-bold flex items-center mb-4">
-              <ShoppingBag className="mr-2" />
-              <span>QuickKart</span>
+    <footer className="bg-[#00241a] text-white pt-16 pb-12 border-t border-[#0d3b2e]">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        {/* Trust Value Badges */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-12 border-b border-[#0d3b2e]">
+          <div className="flex items-center gap-3">
+            <Truck className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-sm">Free Express Shipping</h4>
+              <p className="text-xs text-gray-400">On all orders over ₹500</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <ShieldCheck className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-sm">Secure Payment</h4>
+              <p className="text-xs text-gray-400">100% SSL encrypted checkout</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <RotateCcw className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-sm">30-Day Easy Returns</h4>
+              <p className="text-xs text-gray-400">Hassle-free money back</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <Headphones className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-sm">24/7 Dedicated Support</h4>
+              <p className="text-xs text-gray-400">Always here to assist</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Footer Links */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-12">
+          {/* Brand Story */}
+          <div className="md:col-span-4 space-y-4">
+            <Link to="/" className="font-headline font-bold text-3xl tracking-tighter text-white">
+              QuickKart<span className="text-[#fd6c1a]">.</span>
             </Link>
-            <p className="text-gray-300 mb-4">
-              Your one-stop shop for all your shopping needs. Quality products, competitive prices.
+            <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
+              Discover a curated collection where modern craftsmanship meets intentional design. Elevate your everyday with QuickKart's exclusive premium essentials.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Facebook size={20} />
+            <div className="flex items-center gap-3 pt-2">
+              <a href="#" className="w-9 h-9 rounded-full bg-[#0d3b2e] hover:bg-[#fd6c1a] flex items-center justify-center transition-colors">
+                <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Twitter size={20} />
+              <a href="#" className="w-9 h-9 rounded-full bg-[#0d3b2e] hover:bg-[#fd6c1a] flex items-center justify-center transition-colors">
+                <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Instagram size={20} />
+              <a href="#" className="w-9 h-9 rounded-full bg-[#0d3b2e] hover:bg-[#fd6c1a] flex items-center justify-center transition-colors">
+                <Facebook className="w-4 h-4" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="text-gray-300 hover:text-white transition-colors">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart" className="text-gray-300 hover:text-white transition-colors">
-                  Cart
-                </Link>
-              </li>
-              <li>
-                <Link to="/login" className="text-gray-300 hover:text-white transition-colors">
-                  Account
-                </Link>
-              </li>
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-[#a3d0be]">Shop</h4>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link to="/products" className="hover:text-white transition-colors">All Products</Link></li>
+              <li><Link to="/deals" className="hover:text-white transition-colors">Autumn Sale</Link></li>
+              <li><Link to="/products?category=home" className="hover:text-white transition-colors">Home & Living</Link></li>
+              <li><Link to="/products?category=electronics" className="hover:text-white transition-colors">Modern Tech</Link></li>
             </ul>
           </div>
 
-          {/* Categories */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Categories</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/products?category=electronics" className="text-gray-300 hover:text-white transition-colors">
-                  Electronics
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category=clothing" className="text-gray-300 hover:text-white transition-colors">
-                  Clothing
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category=home" className="text-gray-300 hover:text-white transition-colors">
-                  Home & Kitchen
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category=beauty" className="text-gray-300 hover:text-white transition-colors">
-                  Beauty & Personal Care
-                </Link>
-              </li>
+          {/* Customer Care */}
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-[#a3d0be]">Customer Care</h4>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link to="/orders" className="hover:text-white transition-colors">Track Order</Link></li>
+              <li><Link to="/wishlist" className="hover:text-white transition-colors">My Wishlist</Link></li>
+              <li><a href="#" className="hover:text-white transition-colors">Shipping Info</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Returns & Exchanges</a></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">
-                  123 Commerce St, Shopping City, SC 12345
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Phone size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-gray-300">(123) 456-7890</span>
-              </li>
-              <li className="flex items-center">
-                <Mail size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-gray-300">support@quickkart.com</span>
-              </li>
-            </ul>
+          {/* Newsletter Signup */}
+          <div className="md:col-span-4 space-y-4">
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-[#a3d0be]">Stay Connected</h4>
+            <p className="text-xs text-gray-300">Subscribe for private lookbook access, seasonal offers, and new drops.</p>
+            <form onSubmit={(e) => e.preventDefault()} className="flex items-center">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="bg-[#0d3b2e] border border-[#234e40] text-sm text-white px-4 py-2.5 rounded-l-xl focus:outline-none w-full placeholder:text-gray-400"
+              />
+              <button className="bg-[#fd6c1a] hover:bg-[#a33e00] text-white px-4 py-2.5 rounded-r-xl transition-colors flex items-center justify-center">
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} QuickKart. All rights reserved.</p>
+        {/* Bottom Bar */}
+        <div className="border-t border-[#0d3b2e] pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+          <p>&copy; {new Date().getFullYear()} QuickKart Inc. All rights reserved. Curated for Intentional Living.</p>
+          <div className="flex items-center space-x-6">
+            <a href="#" className="hover:text-white">Privacy Policy</a>
+            <a href="#" className="hover:text-white">Terms of Service</a>
+            <a href="#" className="hover:text-white">Cookie Settings</a>
+          </div>
         </div>
       </div>
     </footer>

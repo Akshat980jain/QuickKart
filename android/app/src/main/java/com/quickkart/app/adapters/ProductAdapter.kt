@@ -3,12 +3,14 @@ package com.quickkart.app.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.quickkart.app.R
 import com.quickkart.app.databinding.ItemProductBinding
+import com.quickkart.app.managers.WishlistManager
 import com.quickkart.app.models.Product
 import com.quickkart.app.utils.formatPrice
 
@@ -63,9 +65,30 @@ class ProductAdapter(
                     discountBadge.visibility = View.GONE
                 }
                 
+                // Wishlist state
+                updateWishlistIcon(product)
+                
                 // Click listeners
                 root.setOnClickListener { onProductClick(product) }
                 addToCartButton.setOnClickListener { onAddToCart(product) }
+                
+                wishlistButton.setOnClickListener {
+                    val isNowInWishlist = WishlistManager.toggleWishlist(product)
+                    updateWishlistIcon(product)
+                }
+            }
+        }
+        
+        private fun updateWishlistIcon(product: Product) {
+            val isInWishlist = WishlistManager.isInWishlist(product.id)
+            binding.wishlistButton.apply {
+                if (isInWishlist) {
+                    setImageResource(R.drawable.ic_heart_filled)
+                    imageTintList = null // Use the pink color from the drawable
+                } else {
+                    setImageResource(R.drawable.ic_heart_outline)
+                    imageTintList = ContextCompat.getColorStateList(context, R.color.text_hint)
+                }
             }
         }
     }

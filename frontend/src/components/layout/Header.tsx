@@ -7,96 +7,49 @@ import {
   X, 
   Search, 
   LogOut, 
-  ShoppingBag,
-  Bell,
-  Heart,
-  Package,
-  Settings,
-  ChevronDown,
-  Sparkles,
-  Star,
-  TrendingUp,
-  Clock,
-  MapPin,
-  Phone,
-  Mail
+  Bell, 
+  Heart, 
+  Package, 
+  Settings, 
+  ChevronDown, 
+  TrendingUp, 
+  Sun, 
+  Moon,
+  Sparkles
 } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
-
-// Mock data for search suggestions
-const mockSearchSuggestions = [
-  { id: 1, name: "Wireless Headphones", category: "Electronics", trending: true },
-  { id: 2, name: "Smart Watch", category: "Electronics", trending: true },
-  { id: 3, name: "Coffee Maker", category: "Home & Kitchen", trending: false },
-  { id: 4, name: "Running Shoes", category: "Sports", trending: true },
-  { id: 5, name: "Laptop Stand", category: "Electronics", trending: false },
-];
-
-// Add categories mock data from Home.tsx
-const categories = [
-  {
-    id: 1,
-    name: "Electronics",
-    slug: "electronics",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    description: "Latest gadgets and cutting-edge devices",
-    productCount: 1250,
-    gradient: "from-blue-600 to-purple-600"
-  },
-  {
-    id: 2,
-    name: "Fashion",
-    slug: "clothing",
-    image: "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    description: "Trendy fashion for every occasion",
-    productCount: 2100,
-    gradient: "from-pink-500 to-rose-500"
-  },
-  {
-    id: 3,
-    name: "Home & Kitchen",
-    slug: "home",
-    image: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    description: "Transform your living space",
-    productCount: 890,
-    gradient: "from-green-500 to-emerald-500"
-  },
-  {
-    id: 4,
-    name: "Sports & Outdoors",
-    slug: "sports",
-    image: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1000",
-    description: "Gear up for your adventures",
-    productCount: 675,
-    gradient: "from-orange-500 to-red-500"
-  }
-];
+import { useTheme } from '../../context/ThemeContext';
+import { CATEGORIES as categories, SEARCH_SUGGESTIONS as mockSearchSuggestions } from '../../data/categories';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-  
+  const [filteredSuggestions, setFilteredSuggestions] = useState<any[]>([]);
+
   const { user, logout } = useAuth();
-  const { cartItems } = useCart();
+  const { cartItems, wishlistItems } = useCart();
+  const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  const searchRef = useRef(null);
-  const userDropdownRef = useRef(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const userDropdownRef = useRef<HTMLDivElement>(null);
 
-  // Handle scroll effect
+  // Close dropdowns when clicking outside
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target as Node)) {
+        setShowUserDropdown(false);
+      }
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   // Filter search suggestions
@@ -111,25 +64,6 @@ const Header: React.FC = () => {
     }
   }, [searchQuery]);
 
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setIsSearchFocused(false);
-      }
-      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
-        setShowUserDropdown(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -139,546 +73,257 @@ const Header: React.FC = () => {
     }
   };
 
-  const handleSuggestionClick = (suggestion) => {
+  const handleSuggestionClick = (suggestion: any) => {
     setSearchQuery(suggestion.name);
     navigate(`/products?search=${encodeURIComponent(suggestion.name)}`);
     setIsSearchFocused(false);
   };
 
+  const isActiveRoute = (path: string) => location.pathname === path;
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-  const isActiveRoute = (path: string) => {
-    return location.pathname === path;
-  };
+  const wishlistCount = wishlistItems?.length ?? 0;
 
   const mockNotifications = [
-    { id: 1, title: "Order Shipped", message: "Your order #1234 has been shipped", time: "2 hours ago", unread: true },
-    { id: 2, title: "Flash Sale", message: "50% off on electronics", time: "4 hours ago", unread: true },
-    { id: 3, title: "Order Delivered", message: "Your order has been delivered", time: "1 day ago", unread: false },
+    { id: 1, title: "Order Shipped", message: "Your order #1234 has been shipped", time: "2h ago", unread: true },
+    { id: 2, title: "Flash Sale", message: "20% off on Autumn Collection", time: "4h ago", unread: true },
   ];
-
-  const unreadNotifications = mockNotifications.filter(n => n.unread).length;
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm py-2 hidden md:block">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center">
-              <Phone className="w-4 h-4 mr-1" />
-              <span>+1 (555) 123-4567</span>
-            </div>
-            <div className="flex items-center">
-              <Mail className="w-4 h-4 mr-1" />
-              <span>support@quickkart.com</span>
-            </div>
+      {/* Top Banner */}
+      <div className="bg-[#00241a] dark:bg-[#0d3b2e] text-white text-xs py-2 px-4 text-center font-medium tracking-wide">
+        <div className="max-w-[1280px] mx-auto flex justify-between items-center">
+          <div className="hidden sm:flex items-center space-x-4 text-white/80">
+            <span>Free Express Shipping on Orders Over ₹500</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <span className="flex items-center">
-              <MapPin className="w-4 h-4 mr-1" />
-              Free shipping on orders over ₹50
-            </span>
-            <div className="flex items-center">
-              <Sparkles className="w-4 h-4 mr-1 animate-pulse" />
-              <span>New Year Sale - Up to 70% Off!</span>
-            </div>
+          <div className="flex items-center space-x-2 mx-auto sm:mx-0">
+            <Sparkles className="w-3.5 h-3.5 text-[#fd6c1a] animate-pulse" />
+            <span className="font-semibold text-white">Autumn Drop 2024 — Up to 30% Off Curated Goods</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-4 text-white/80">
+            <Link to="/deals" className="hover:text-white transition-colors">Hot Deals</Link>
+            <span>•</span>
+            <Link to="/notifications" className="hover:text-white transition-colors">Support</Link>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
-          : 'bg-white shadow-md'
-      }`}>
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
-            {/* Logo */}
-            <Link to="/" className="text-2xl font-bold text-blue-600 flex items-center group">
-              <div className="relative">
-                <ShoppingBag className="mr-2 transition-transform group-hover:scale-110" />
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-              </div>
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                QuickKart
-              </span>
+      {/* Main Glass Header */}
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#f8f9fa]/90 dark:bg-[#191c1d]/90 border-b border-[#e1e3e4]/70 dark:border-[#2e3132]/70 transition-all duration-300">
+        <nav className="flex justify-between items-center w-full px-4 sm:px-6 max-w-[1280px] mx-auto py-3.5">
+          {/* Left: Brand Logo & Main Nav */}
+          <div className="flex items-center gap-8">
+            <Link to="/" className="font-headline font-bold text-2xl tracking-tighter text-[#00241a] dark:text-[#a3d0be]">
+              QuickKart<span className="text-[#fd6c1a]">.</span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            {/* Desktop Navigation Links */}
+            <div className="hidden md:flex items-center gap-6 text-sm font-medium">
               <Link 
                 to="/" 
-                className={`relative py-2 px-4 rounded-full transition-all duration-300 ${
+                className={`transition-colors py-1 ${
                   isActiveRoute('/') 
-                    ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-[#00241a] dark:text-[#a3d0be] font-semibold border-b-2 border-[#00241a] dark:border-[#a3d0be]' 
+                    : 'text-[#414845] dark:text-gray-300 hover:text-[#00241a] dark:hover:text-[#a3d0be]'
                 }`}
               >
                 Home
-                {isActiveRoute('/') && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-blue-600 rounded-full"></div>
-                )}
               </Link>
               <Link 
                 to="/products" 
-                className={`relative py-2 px-4 rounded-full transition-all duration-300 ${
+                className={`transition-colors py-1 ${
                   isActiveRoute('/products') 
-                    ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-[#00241a] dark:text-[#a3d0be] font-semibold border-b-2 border-[#00241a] dark:border-[#a3d0be]' 
+                    : 'text-[#414845] dark:text-gray-300 hover:text-[#00241a] dark:hover:text-[#a3d0be]'
                 }`}
               >
-                Products
-                {isActiveRoute('/products') && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-blue-600 rounded-full"></div>
-                )}
+                Shop All
               </Link>
+              
+              {/* Categories Dropdown */}
               <div className="relative group">
-                <button
-                  className={`relative py-2 px-4 rounded-full transition-all duration-300 flex items-center ${
-                    isActiveRoute('/categories')
-                      ? 'text-blue-600 bg-blue-50 shadow-sm'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                >
+                <button className="flex items-center gap-1 text-[#414845] dark:text-gray-300 hover:text-[#00241a] dark:hover:text-[#a3d0be] transition-colors py-1">
                   Categories
-                  <ChevronDown className="w-4 h-4 ml-1" />
+                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="absolute left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-                  <div className="py-2">
-                    {categories.map(category => (
-                      <Link
-                        key={category.id}
-                        to={`/products?category=${category.slug}`}
-                        className="flex items-center px-4 py-3 hover:bg-gray-50 transition-colors"
-                      >
-                        <img src={category.image} alt={category.name} className="w-10 h-10 rounded-lg object-cover mr-3" />
-                        <div>
-                          <div className="font-semibold text-gray-900">{category.name}</div>
-                          <div className="text-xs text-gray-500">{category.productCount} products</div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+                <div className="absolute left-0 mt-2 w-60 bg-white dark:bg-[#2e3132] rounded-2xl shadow-xl border border-[#e1e3e4] dark:border-[#414845] z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 py-2">
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat.id}
+                      to={`/products?category=${cat.slug}`}
+                      className="flex items-center px-4 py-2.5 hover:bg-[#f3f4f5] dark:hover:bg-[#191c1d] transition-colors text-sm text-[#191c1d] dark:text-white"
+                    >
+                      <img src={cat.image} alt={cat.name} className="w-8 h-8 rounded-lg object-cover mr-3" />
+                      <div>
+                        <div className="font-medium">{cat.name}</div>
+                        <div className="text-xs text-[#717974]">{cat.productCount} items</div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
+
               <Link 
                 to="/deals" 
-                className={`relative py-2 px-4 rounded-full transition-all duration-300 flex items-center ${
+                className={`flex items-center gap-1 transition-colors py-1 ${
                   isActiveRoute('/deals') 
-                    ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-[#fd6c1a] font-semibold' 
+                    : 'text-[#414845] dark:text-gray-300 hover:text-[#fd6c1a]'
                 }`}
               >
-                <TrendingUp className="w-4 h-4 mr-1" />
+                <TrendingUp className="w-4 h-4" />
                 Deals
-                <div className="ml-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
-                  Hot
-                </div>
+                <span className="bg-[#fd6c1a] text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold uppercase">Hot</span>
               </Link>
+
               {user?.role === 'admin' && (
                 <Link 
                   to="/admin" 
-                  className={`relative py-2 px-4 rounded-full transition-all duration-300 ${
-                    isActiveRoute('/admin') 
-                      ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
+                  className="text-[#414845] dark:text-gray-300 hover:text-[#00241a] dark:hover:text-[#a3d0be] transition-colors py-1"
                 >
                   Admin
                 </Link>
               )}
-            </nav>
+            </div>
+          </div>
 
-            {/* Enhanced Search Bar */}
-            <div className="hidden md:flex items-center relative" ref={searchRef}>
-              <form onSubmit={handleSearch} className="relative">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search products, brands, categories..."
-                    className={`w-80 pl-12 pr-4 py-3 rounded-full border-2 transition-all duration-300 ${
-                      isSearchFocused 
-                        ? 'border-blue-500 bg-white shadow-lg' 
-                        : 'border-gray-200 bg-gray-50 hover:bg-white hover:border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-blue-500/20`}
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onFocus={() => setIsSearchFocused(true)}
-                  />
-                  <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
-                  {searchQuery && (
-                    <button
-                      type="button"
-                      onClick={() => setSearchQuery('')}
-                      className="absolute right-4 top-3.5 text-gray-400 hover:text-gray-600"
-                    >
-                      <X size={16} />
-                    </button>
-                  )}
-                </div>
+          {/* Center/Right: Search Bar & Actions */}
+          <div className="flex items-center gap-4">
+            {/* Search Input */}
+            <div className="hidden lg:flex items-center bg-[#f3f4f5] dark:bg-[#2e3132] rounded-full px-4 py-2 w-64 sm:w-72 border border-[#c0c8c3] dark:border-[#414845] focus-within:border-[#00241a] dark:focus-within:border-[#a3d0be] transition-all relative" ref={searchRef}>
+              <Search className="w-4 h-4 text-[#717974] dark:text-gray-400 mr-2 flex-shrink-0" />
+              <form onSubmit={handleSearch} className="w-full">
+                <input 
+                  type="text" 
+                  placeholder="Search curated goods..."
+                  className="bg-transparent border-none focus:outline-none text-sm w-full text-[#191c1d] dark:text-white placeholder-[#717974] dark:placeholder-gray-400"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setIsSearchFocused(true)}
+                />
               </form>
 
-              {/* Search Suggestions Dropdown */}
+              {/* Suggestions dropdown */}
               {isSearchFocused && (
-                <div className="absolute top-full mt-2 w-full bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 max-h-96 overflow-y-auto">
+                <div className="absolute top-full left-0 mt-2 w-full bg-white dark:bg-[#2e3132] rounded-2xl shadow-xl border border-[#e1e3e4] dark:border-[#414845] z-50 overflow-hidden">
                   {filteredSuggestions.length > 0 ? (
-                    <>
-                      <div className="px-4 py-3 border-b border-gray-100">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-semibold text-gray-700">Search Suggestions</span>
-                          <span className="text-xs text-gray-500">{filteredSuggestions.length} results</span>
-                        </div>
-                      </div>
-                      {filteredSuggestions.map((suggestion) => (
-                        <button
-                          key={suggestion.id}
-                          onClick={() => handleSuggestionClick(suggestion)}
-                          className="w-full px-4 py-3 text-left hover:bg-gray-50 flex items-center justify-between group transition-colors"
-                        >
-                          <div className="flex items-center">
-                            <Search className="w-4 h-4 text-gray-400 mr-3" />
-                            <div>
-                              <span className="text-gray-900 font-medium">{suggestion.name}</span>
-                              <span className="text-gray-500 text-sm ml-2">in {suggestion.category}</span>
-                            </div>
-                          </div>
-                          {suggestion.trending && (
-                            <div className="flex items-center text-orange-500 text-xs">
-                              <TrendingUp className="w-3 h-3 mr-1" />
-                              Trending
-                            </div>
-                          )}
-                        </button>
-                      ))}
-                    </>
-                  ) : searchQuery.length > 0 ? (
-                    <div className="px-4 py-6 text-center text-gray-500">
-                      <Search className="w-8 h-8 mx-auto mb-2 text-gray-300" />
-                      <p>No results found for "{searchQuery}"</p>
-                    </div>
-                  ) : (
-                    <div className="px-4 py-3">
-                      <div className="text-sm font-semibold text-gray-700 mb-3">Trending Searches</div>
-                      {mockSearchSuggestions.filter(s => s.trending).map((suggestion) => (
-                        <button
-                          key={suggestion.id}
-                          onClick={() => handleSuggestionClick(suggestion)}
-                          className="w-full px-2 py-2 text-left hover:bg-gray-50 flex items-center text-sm text-gray-600 rounded-lg transition-colors"
-                        >
-                          <TrendingUp className="w-3 h-3 text-orange-500 mr-2" />
-                          {suggestion.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
+                    filteredSuggestions.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => handleSuggestionClick(item)}
+                        className="w-full px-4 py-2.5 text-left text-sm hover:bg-[#f3f4f5] dark:hover:bg-[#191c1d] flex items-center justify-between text-[#191c1d] dark:text-white"
+                      >
+                        <span>{item.name}</span>
+                        <span className="text-xs text-[#717974]">{item.category}</span>
+                      </button>
+                    ))
+                  ) : searchQuery ? (
+                    <div className="p-4 text-xs text-[#717974] text-center">No matching curated items found</div>
+                  ) : null}
                 </div>
               )}
             </div>
 
-            {/* User Controls */}
-            <div className="flex items-center space-x-4">
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2">
               {/* Wishlist */}
               <Link 
                 to="/wishlist" 
-                className="relative p-2 text-gray-700 hover:text-red-500 transition-colors rounded-full hover:bg-red-50"
+                className="p-2 hover:bg-[#f3f4f5] dark:hover:bg-[#2e3132] rounded-xl transition-all relative text-[#191c1d] dark:text-white"
+                title="Wishlist"
               >
-                <Heart className="w-6 h-6" />
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  3
-                </span>
-              </Link>
-
-              {/* Notifications */}
-              <div className="relative">
-                <button 
-                  onClick={() => setShowNotifications(!showNotifications)}
-                  className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors rounded-full hover:bg-blue-50"
-                >
-                  <Bell className="w-6 h-6" />
-                  {unreadNotifications > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
-                      {unreadNotifications}
-                    </span>
-                  )}
-                </button>
-
-                {/* Notifications Dropdown */}
-                {showNotifications && (
-                  <div className="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 max-h-96 overflow-y-auto">
-                    <div className="px-4 py-3 border-b border-gray-100">
-                      <div className="flex items-center justify-between">
-                        <span className="font-semibold text-gray-900">Notifications</span>
-                        <button className="text-blue-600 text-sm hover:text-blue-700">
-                          Mark all as read
-                        </button>
-                      </div>
-                    </div>
-                    {mockNotifications.map((notification) => (
-                      <div key={notification.id} className={`px-4 py-3 hover:bg-gray-50 transition-colors ${
-                        notification.unread ? 'bg-blue-50/50' : ''
-                      }`}>
-                        <div className="flex items-start">
-                          <div className={`w-2 h-2 rounded-full mt-2 mr-3 ${
-                            notification.unread ? 'bg-blue-600' : 'bg-gray-300'
-                          }`}></div>
-                          <div className="flex-1">
-                            <h4 className="font-medium text-gray-900">{notification.title}</h4>
-                            <p className="text-sm text-gray-600">{notification.message}</p>
-                            <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <Heart className="w-5 h-5" />
+                {wishlistCount > 0 && (
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-[#fd6c1a] rounded-full"></span>
                 )}
-              </div>
+              </Link>
 
               {/* Cart */}
               <Link 
                 to="/cart" 
-                className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors rounded-full hover:bg-blue-50 group"
+                className="p-2 hover:bg-[#f3f4f5] dark:hover:bg-[#2e3132] rounded-xl transition-all relative text-[#191c1d] dark:text-white"
+                title="Shopping Cart"
               >
-                <ShoppingCart className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                <ShoppingCart className="w-5 h-5" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce">
+                  <span className="absolute -top-1 -right-1 bg-[#00241a] dark:bg-[#a3d0be] text-white dark:text-[#00241a] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                     {totalItems}
                   </span>
                 )}
               </Link>
-              
-              {/* User Account */}
+
+              {/* Theme Toggle */}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                className="p-2 hover:bg-[#f3f4f5] dark:hover:bg-[#2e3132] rounded-xl transition-all text-[#191c1d] dark:text-white"
+              >
+                {isDark ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-gray-700" />}
+              </button>
+
+              {/* User Account / Avatar */}
               {user ? (
                 <div className="relative" ref={userDropdownRef}>
                   <button 
                     onClick={() => setShowUserDropdown(!showUserDropdown)}
-                    className="flex items-center space-x-2 p-2 rounded-full hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-2 ml-1 p-1 hover:bg-[#f3f4f5] dark:hover:bg-[#2e3132] rounded-full transition-all"
                   >
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                    <div className="w-8 h-8 rounded-full bg-[#00241a] text-[#beedd9] flex items-center justify-center font-bold text-sm">
                       {user.name.charAt(0).toUpperCase()}
                     </div>
-                    <div className="hidden lg:block text-left">
-                      <div className="text-sm font-semibold text-gray-900">{user.name}</div>
-                      <div className="text-xs text-gray-500">Welcome back!</div>
-                    </div>
-                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${
-                      showUserDropdown ? 'rotate-180' : ''
-                    }`} />
                   </button>
 
-                  {/* User Dropdown */}
                   {showUserDropdown && (
-                    <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50">
-                      <div className="px-4 py-3 border-b border-gray-100">
-                        <div className="flex items-center">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
-                            {user.name.charAt(0).toUpperCase()}
-                          </div>
-                          <div className="ml-3">
-                            <div className="font-semibold text-gray-900">{user.name}</div>
-                            <div className="text-sm text-gray-500">{user.email}</div>
-                          </div>
-                        </div>
+                    <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-[#2e3132] rounded-2xl shadow-xl border border-[#e1e3e4] dark:border-[#414845] z-50 py-2 text-sm">
+                      <div className="px-4 py-2 border-b border-[#e1e3e4] dark:border-[#414845]">
+                        <div className="font-semibold text-[#191c1d] dark:text-white">{user.name}</div>
+                        <div className="text-xs text-[#717974]">{user.email}</div>
                       </div>
-                      
-                      <div className="py-2">
-                        <Link 
-                          to="/profile" 
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
-                          onClick={() => setShowUserDropdown(false)}
-                        >
-                          <User className="w-5 h-5 mr-3" />
-                          My Profile
-                        </Link>
-                        <Link 
-                          to="/orders" 
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
-                          onClick={() => setShowUserDropdown(false)}
-                        >
-                          <Package className="w-5 h-5 mr-3" />
-                          Order History
-                        </Link>
-                        <Link 
-                          to="/wishlist" 
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
-                          onClick={() => setShowUserDropdown(false)}
-                        >
-                          <Heart className="w-5 h-5 mr-3" />
-                          Wishlist
-                        </Link>
-                        <Link 
-                          to="/settings" 
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
-                          onClick={() => setShowUserDropdown(false)}
-                        >
-                          <Settings className="w-5 h-5 mr-3" />
-                          Settings
-                        </Link>
-                        <div className="border-t border-gray-100 mt-2 pt-2">
-                          <button 
-                            onClick={() => {
-                              logout();
-                              setShowUserDropdown(false);
-                            }}
-                            className="flex items-center w-full px-4 py-3 text-red-600 hover:bg-red-50 transition-colors"
-                          >
-                            <LogOut className="w-5 h-5 mr-3" />
-                            Logout
-                          </button>
-                        </div>
-                      </div>
+                      <Link to="/profile" className="flex items-center px-4 py-2 hover:bg-[#f3f4f5] dark:hover:bg-[#191c1d] text-[#191c1d] dark:text-white">
+                        <User className="w-4 h-4 mr-2" /> Profile
+                      </Link>
+                      <Link to="/orders" className="flex items-center px-4 py-2 hover:bg-[#f3f4f5] dark:hover:bg-[#191c1d] text-[#191c1d] dark:text-white">
+                        <Package className="w-4 h-4 mr-2" /> Orders
+                      </Link>
+                      <button 
+                        onClick={logout}
+                        className="w-full text-left flex items-center px-4 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30"
+                      >
+                        <LogOut className="w-4 h-4 mr-2" /> Logout
+                      </button>
                     </div>
                   )}
                 </div>
               ) : (
                 <Link 
                   to="/login" 
-                  className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                  className="bg-[#00241a] dark:bg-[#a3d0be] text-white dark:text-[#00241a] font-semibold text-xs px-4 py-2.5 rounded-xl hover:bg-[#0d3b2e] dark:hover:bg-[#beedd9] transition-all ml-1 shadow-sm"
                 >
-                  <User className="w-5 h-5" />
-                  <span>Login</span>
+                  Sign In
                 </Link>
               )}
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Trigger */}
               <button 
-                className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors rounded-full hover:bg-blue-50" 
-                onClick={toggleMenu}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 text-[#191c1d] dark:text-white"
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
+        </nav>
 
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-gray-200 bg-white rounded-b-2xl shadow-lg">
-              {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="mb-6 px-2">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    className="w-full pl-12 pr-4 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                  <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
-                </div>
-              </form>
-
-              {/* Mobile Navigation */}
-              <nav className="space-y-2">
-                <Link 
-                  to="/" 
-                  className={`flex items-center px-4 py-3 rounded-xl transition-all duration-300 ${
-                    isActiveRoute('/') 
-                      ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="font-medium">Home</span>
-                </Link>
-                <Link 
-                  to="/products" 
-                  className={`flex items-center px-4 py-3 rounded-xl transition-all duration-300 ${
-                    isActiveRoute('/products') 
-                      ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="font-medium">Products</span>
-                </Link>
-                <Link 
-                  to="/categories" 
-                  className={`flex items-center px-4 py-3 rounded-xl transition-all duration-300 ${
-                    isActiveRoute('/categories') 
-                      ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="font-medium">Categories</span>
-                </Link>
-                <Link 
-                  to="/deals" 
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 ${
-                    isActiveRoute('/deals') 
-                      ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <div className="flex items-center">
-                    <TrendingUp className="w-5 h-5 mr-2" />
-                    <span className="font-medium">Deals</span>
-                  </div>
-                  <div className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                    Hot
-                  </div>
-                </Link>
-                <Link 
-                  to="/orders" 
-                  className="flex items-center px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Package className="w-5 h-5 mr-2" />
-                  <span className="font-medium">Orders</span>
-                </Link>
-                <Link 
-                  to="/wishlist" 
-                  className="flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-red-500 hover:bg-red-50 transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <div className="flex items-center">
-                    <Heart className="w-5 h-5 mr-2" />
-                    <span className="font-medium">Wishlist</span>
-                  </div>
-                  <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    3
-                  </span>
-                </Link>
-                {user?.role === 'admin' && (
-                  <Link 
-                    to="/admin" 
-                    className={`flex items-center px-4 py-3 rounded-xl transition-all duration-300 ${
-                      isActiveRoute('/admin') 
-                        ? 'text-blue-600 bg-blue-50 shadow-sm' 
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span className="font-medium">Admin</span>
-                  </Link>
-                )}
-                {!user ? (
-                  <Link 
-                    to="/login" 
-                    className="flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <User className="w-5 h-5 mr-2" />
-                    <span className="font-medium">Login</span>
-                  </Link>
-                ) : (
-                  <button 
-                    onClick={() => {
-                      logout();
-                      setIsMenuOpen(false);
-                    }}
-                    className="flex items-center w-full px-4 py-3 rounded-xl text-red-600 hover:text-red-700 hover:bg-red-50 transition-all duration-300"
-                  >
-                    <LogOut className="w-5 h-5 mr-2" />
-                    <span className="font-medium">Logout</span>
-                  </button>
-                )}
-              </nav>
-            </div>
-          )}
-        </div>
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white dark:bg-[#191c1d] border-b border-[#e1e3e4] px-4 py-4 space-y-3">
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block font-medium text-[#191c1d] dark:text-white">Home</Link>
+            <Link to="/products" onClick={() => setIsMenuOpen(false)} className="block font-medium text-[#191c1d] dark:text-white">Shop All</Link>
+            <Link to="/deals" onClick={() => setIsMenuOpen(false)} className="block font-medium text-[#fd6c1a]">Hot Deals</Link>
+            <Link to="/orders" onClick={() => setIsMenuOpen(false)} className="block font-medium text-[#191c1d] dark:text-white">My Orders</Link>
+          </div>
+        )}
       </header>
     </>
   );

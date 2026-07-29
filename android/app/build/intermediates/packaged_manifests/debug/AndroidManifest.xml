@@ -110,6 +110,41 @@
             android:theme="@style/Theme.QuickKart"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Wishlist Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.WishlistActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Order Tracking Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.OrderTrackingActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.OrdersActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Loyalty Points Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.LoyaltyPointsActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Compare Activity -->
+        <activity
+            android:name="com.quickkart.app.activities.CompareActivity"
+            android:exported="false"
+            android:parentActivityName="com.quickkart.app.activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.quickkart.app.androidx-startup"

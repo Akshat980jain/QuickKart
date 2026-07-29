@@ -2,11 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/quickkart_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuickKart E-commerce Platform</title>
+    <meta name="description" content="QuickKart – Shop smart, shop quick. Premium products at unbeatable prices with free shipping." />
+    <meta name="theme-color" content="#2563eb" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="QuickKart – Shop Smart, Shop Quick" />
+    <meta property="og:description" content="Discover amazing products at unbeatable prices on QuickKart." />
+    <meta property="og:type" content="website" />
+    <!-- Google Fonts & Material Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <title>QuickKart – Curated Goods for Intentional Living</title>
   </head>
   <body>
+    <!-- Inline theme script: runs synchronously before React mounts -->
+    <script>
+      (function () {
+        try {
+          // Delete old key to prevent conflicts with previous theme implementations
+          localStorage.removeItem('theme');
+          var stored = localStorage.getItem('quickkart-theme');
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            // Default to light mode — also write it so state is consistent
+            document.documentElement.classList.remove('dark');
+            if (!stored) {
+              localStorage.setItem('quickkart-theme', 'light');
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

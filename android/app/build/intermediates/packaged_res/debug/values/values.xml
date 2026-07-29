@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <array name="price_range_default">
+        <item>0</item>
+        <item>10000</item>
+    </array>
     <color name="background">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="border">#CBD5E1</color>

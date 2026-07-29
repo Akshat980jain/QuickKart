@@ -1,329 +1,264 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Trash2, 
   Plus, 
   Minus, 
-  AlertCircle, 
   ArrowLeft, 
   ShoppingBag, 
-  Tag,
-  Sparkles,
-  Shield,
-  Truck,
-  Heart,
-  Gift
+  Tag, 
+  ShieldCheck, 
+  Truck, 
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 import { useCart } from '../hooks/useCart';
+import { useToast } from '../context/ToastContext';
+import { formatPrice } from '../utils/formatPrice';
 
 const Cart: React.FC = () => {
   const { cartItems, updateQuantity, removeFromCart, totalPrice } = useCart();
+  const { toast } = useToast();
+  const navigate = useNavigate();
+
   const [promoCode, setPromoCode] = useState('');
   const [appliedPromo, setAppliedPromo] = useState('');
   const [promoDiscount, setPromoDiscount] = useState(0);
-  
-  // Calculate shipping costs
-  const shippingCost = totalPrice > 50 ? 0 : 5.99;
-  // Calculate tax (e.g. 8.5%)
-  const taxRate = 0.085;
+
+  const shippingCost = totalPrice > 500 ? 0 : 49;
+  const taxRate = 0.08;
   const taxAmount = totalPrice * taxRate;
-  // Calculate final total
   const discountAmount = totalPrice * promoDiscount;
   const orderTotal = totalPrice + shippingCost + taxAmount - discountAmount;
 
-  const handlePromoCode = () => {
-    // Simple promo code logic - in real app, this would call an API
-    const promoCodes = {
-      'SAVE10': 0.10,
-      'WELCOME20': 0.20,
+  const handleApplyPromo = (e: React.FormEvent) => {
+    e.preventDefault();
+    const codes: Record<string, number> = {
+      'AUTUMN10': 0.10,
+      'VIP20': 0.20,
       'FIRST15': 0.15
     };
-    
-    if (promoCodes[promoCode.toUpperCase()]) {
-      setAppliedPromo(promoCode.toUpperCase());
-      setPromoDiscount(promoCodes[promoCode.toUpperCase()]);
+    const code = promoCode.trim().toUpperCase();
+    if (codes[code]) {
+      setAppliedPromo(code);
+      setPromoDiscount(codes[code]);
       setPromoCode('');
+      toast(`Promo code "${code}" applied — ${Math.round(codes[code] * 100)}% off!`, 'success');
+    } else {
+      toast('Invalid promo code. Try AUTUMN10 or VIP20.', 'error');
     }
   };
 
-  const removePromoCode = () => {
-    setAppliedPromo('');
-    setPromoDiscount(0);
-  };
-  
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center py-20 bg-white rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl opacity-60"></div>
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-br from-pink-100 to-orange-100 rounded-full blur-3xl opacity-60"></div>
-            </div>
-            
-            <div className="relative z-10">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-6 shadow-2xl">
-                <ShoppingBag size={40} className="text-white" />
-              </div>
-              <h2 className="text-4xl font-bold mb-4 text-gray-900">Your cart is empty</h2>
-              <p className="text-gray-600 mb-8 text-lg max-w-md mx-auto leading-relaxed">
-                Looks like you haven't added any products to your cart yet. Start exploring our amazing collection!
-              </p>
-              <Link 
-                to="/products" 
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl group"
-              >
-                <Sparkles className="w-5 h-5 mr-2" />
-                Start Shopping
-                <ArrowLeft className="w-5 h-5 ml-2 rotate-180 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
+      <div className="min-h-screen bg-[#f8f9fa] dark:bg-[#0e1512] flex flex-col items-center justify-center p-6 text-center space-y-8 transition-colors duration-500">
+        <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#beedd9] to-[#a3d0be] dark:from-[#0d3b2e] dark:to-[#234e40] flex items-center justify-center shadow-green animate-float">
+          <ShoppingBag className="w-14 h-14 text-[#00241a] dark:text-[#a3d0be]" />
         </div>
+        <div className="space-y-3 max-w-md">
+          <h1 className="font-headline font-extrabold text-4xl text-[#00241a] dark:text-white tracking-tight">Your Bag is Empty</h1>
+          <p className="text-base text-[#717974] dark:text-gray-400 leading-relaxed">Discover our curated collection of premium intentional luxury goods.</p>
+        </div>
+        <Link
+          to="/products"
+          className="inline-flex items-center gap-2.5 btn-primary text-sm"
+        >
+          <Sparkles className="w-4 h-4" />
+          Explore Collection
+        </Link>
       </div>
     );
   }
-  
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Your Shopping Cart</h1>
-          <p className="text-gray-600 text-lg">
-            {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in your cart
-          </p>
-        </div>
+    <div className="min-h-screen bg-[#f8f9fa] dark:bg-[#0e1512] py-10 transition-colors duration-500">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 space-y-8">
         
-        <div className="flex flex-col xl:flex-row gap-8">
-          {/* Cart Items */}
-          <div className="xl:w-2/3">
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-              {/* Header */}
-              <div className="hidden md:grid md:grid-cols-12 gap-4 text-sm font-semibold text-gray-600 bg-gradient-to-r from-gray-50 to-gray-100 p-6 border-b">
-                <div className="col-span-6">Product</div>
-                <div className="col-span-2 text-center">Price</div>
-                <div className="col-span-2 text-center">Quantity</div>
-                <div className="col-span-2 text-center">Total</div>
-              </div>
-              
-              {/* Cart Items */}
-              <div className="divide-y divide-gray-100">
-                {cartItems.map((item, index) => (
-                  <div 
-                    key={item.id} 
-                    className="grid grid-cols-1 md:grid-cols-12 gap-4 p-6 items-center hover:bg-gray-50 transition-colors duration-200 group"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {/* Product Info */}
-                    <div className="col-span-6 flex items-center mb-4 md:mb-0">
-                      <div className="relative">
-                        <img 
-                          src={item.image} 
-                          alt={item.name} 
-                          className="w-24 h-24 object-cover rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
-                        />
-                        <button 
-                          onClick={() => removeFromCart(item.id)}
-                          className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition-colors duration-200 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-200"
-                        >
-                          <Trash2 size={12} />
-                        </button>
-                      </div>
-                      <div className="ml-4 flex-grow">
-                        <h3 className="font-semibold text-lg text-gray-900 mb-1">{item.name}</h3>
-                        <p className="text-sm text-gray-500 capitalize mb-2">{item.category}</p>
-                        <div className="flex items-center gap-2">
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            In Stock
-                          </span>
-                          <button className="text-gray-400 hover:text-red-500 transition-colors">
-                            <Heart size={16} />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Price */}
-                    <div className="col-span-2 text-center mb-4 md:mb-0">
-                      <div className="md:hidden text-sm text-gray-500 mb-1">Price:</div>
-                      <div className="font-bold text-lg text-gray-900">₹{item.price.toFixed(2)}</div>
-                    </div>
-                    
-                    {/* Quantity */}
-                    <div className="col-span-2 text-center mb-4 md:mb-0">
-                      <div className="md:hidden text-sm text-gray-500 mb-1">Quantity:</div>
-                      <div className="flex items-center justify-center">
-                        <div className="flex items-center bg-gray-100 rounded-full p-1">
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="text-gray-500 hover:text-gray-700 hover:bg-white rounded-full p-2 transition-all duration-200"
-                            aria-label="Decrease quantity"
-                          >
-                            <Minus size={16} />
-                          </button>
-                          <input
-                            type="number"
-                            min="1"
-                            value={item.quantity}
-                            onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-                            className="w-16 text-center bg-transparent font-semibold text-gray-900 focus:outline-none"
-                          />
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="text-gray-500 hover:text-gray-700 hover:bg-white rounded-full p-2 transition-all duration-200"
-                            aria-label="Increase quantity"
-                          >
-                            <Plus size={16} />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Total */}
-                    <div className="col-span-2 text-center">
-                      <div className="md:hidden text-sm text-gray-500 mb-1">Total:</div>
-                      <div className="font-bold text-xl text-gray-900">₹{(item.price * item.quantity).toFixed(2)}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Continue Shopping */}
-            <div className="mt-8">
-              <Link 
-                to="/products" 
-                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-lg group transition-colors duration-200"
-              >
-                <ArrowLeft size={20} className="mr-2 transition-transform group-hover:-translate-x-1" />
-                Continue Shopping
-              </Link>
-            </div>
+        {/* Step Progress Header */}
+        <div className="flex items-center justify-between pb-6 border-b border-[#e7e8e9] dark:border-[#2e3a35]">
+          <div>
+            <h1 className="font-headline text-4xl sm:text-5xl font-extrabold text-[#00241a] dark:text-white tracking-tight">Shopping Bag</h1>
+            <p className="text-sm text-[#717974] dark:text-gray-400 mt-1">{cartItems.length} curated {cartItems.length === 1 ? 'item' : 'items'} selected</p>
           </div>
+
+          {/* Steps Indicator */}
+          <div className="hidden sm:flex items-center gap-3 text-xs font-bold uppercase tracking-wider">
+            {['1. Bag', '2. Shipping', '3. Payment'].map((step, i) => (
+              <React.Fragment key={step}>
+                {i > 0 && <span className="text-[#c0c8c3] dark:text-[#2e3a35]">›</span>}
+                <span className={i === 0 ? 'text-[#00241a] dark:text-[#a3d0be] border-b-2 border-[#00241a] dark:border-[#a3d0be] pb-0.5' : 'text-[#717974] dark:text-gray-500'}>{step}</span>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Free Shipping Progress Bar */}
+        <div className="bg-[#beedd9]/60 dark:bg-[#0d3b2e]/50 p-5 rounded-2xl border border-[#a3d0be]/30 dark:border-[#234e40]/50">
+          <div className="flex items-center gap-2 mb-3">
+            <Truck className="w-4 h-4 text-[#00241a] dark:text-[#a3d0be]" />
+            <span className="text-xs font-semibold text-[#002117] dark:text-[#a3d0be]">
+              {totalPrice >= 500 ? (
+                <>Congratulations! You qualified for <strong>Free Express Shipping</strong> 🎉</>
+              ) : (
+                <>Add <strong>{formatPrice(500 - totalPrice)}</strong> more to unlock <strong>Free Express Shipping</strong></>
+              )}
+            </span>
+          </div>
+          <div className="h-1.5 bg-[#a3d0be]/30 dark:bg-[#234e40]/40 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-[#00241a] dark:bg-[#a3d0be] rounded-full transition-all duration-500"
+              style={{ width: `${Math.min((totalPrice / 500) * 100, 100)}%` }}
+            />
+          </div>
+        </div>
+
+        {/* Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Order Summary */}
-          <div className="xl:w-1/3">
-            <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 sticky top-8">
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                  <ShoppingBag size={20} className="text-white" />
-                </div>
-                <h2 className="text-2xl font-bold text-gray-900">Order Summary</h2>
-              </div>
-              
-              {/* Promo Code */}
-              <div className="mb-6">
-                <div className="flex items-center mb-3">
-                  <Tag className="w-5 h-5 text-gray-500 mr-2" />
-                  <span className="text-gray-700 font-medium">Promo Code</span>
-                </div>
-                {appliedPromo ? (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-3 flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="bg-green-500 w-6 h-6 rounded-full flex items-center justify-center mr-2">
-                        <Gift size={12} className="text-white" />
-                      </div>
-                      <span className="text-green-700 font-medium">{appliedPromo}</span>
-                    </div>
-                    <button
-                      onClick={removePromoCode}
-                      className="text-green-600 hover:text-green-700 font-medium text-sm"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ) : (
-                  <div className="flex">
-                    <input
-                      type="text"
-                      placeholder="Enter promo code"
-                      value={promoCode}
-                      onChange={(e) => setPromoCode(e.target.value)}
-                      className="flex-grow p-3 border border-gray-300 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          {/* Cart Item List */}
+          <div className="lg:col-span-8 space-y-4">
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="group bg-white dark:bg-[#1c2722] p-5 rounded-3xl border border-[#e7e8e9] dark:border-[#2e3a35] shadow-card hover:shadow-card-lg transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-5"
+              >
+                <div className="flex items-center gap-4 w-full sm:w-auto">
+                  <div className="w-20 h-24 rounded-2xl overflow-hidden bg-[#f3f4f5] dark:bg-[#141d19] flex-shrink-0 border border-[#e7e8e9] dark:border-[#2e3a35]">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] font-bold text-[#fd6c1a] uppercase tracking-[0.1em]">{item.category}</span>
+                    <h3 className="font-headline font-bold text-base text-[#191c1d] dark:text-white line-clamp-2 mt-0.5 leading-snug">{item.name}</h3>
+                    <div className="font-headline font-extrabold text-[#00241a] dark:text-[#a3d0be] mt-1.5">{formatPrice(item.price)}</div>
+                    {item.discount > 0 && (
+                      <div className="badge-hot inline-block mt-1">{item.discount}% OFF</div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between w-full sm:w-auto gap-6 pt-4 sm:pt-0 border-t sm:border-t-0 border-[#e7e8e9]/60 dark:border-[#2e3a35]/60">
+                  {/* Stepper */}
+                  <div className="flex items-center bg-[#f3f4f5] dark:bg-[#222e29] rounded-2xl overflow-hidden border border-[#e7e8e9] dark:border-[#2e3a35]">
                     <button
-                      onClick={handlePromoCode}
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-r-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium"
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      className="w-9 h-9 flex items-center justify-center hover:bg-[#e7e8e9] dark:hover:bg-[#2e3a35] text-[#414845] dark:text-gray-300 transition-colors"
                     >
-                      Apply
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <span className="w-9 text-center text-sm font-bold text-[#191c1d] dark:text-white">{item.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      className="w-9 h-9 flex items-center justify-center hover:bg-[#e7e8e9] dark:hover:bg-[#2e3a35] text-[#414845] dark:text-gray-300 transition-colors"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
                     </button>
                   </div>
-                )}
-              </div>
-              
-              {/* Order Details */}
-              <div className="space-y-4 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Subtotal</span>
-                  <span className="font-semibold text-gray-900">₹{totalPrice.toFixed(2)}</span>
+
+                  {/* Subtotal */}
+                  <div className="font-headline font-extrabold text-lg text-[#191c1d] dark:text-white text-right">
+                    {formatPrice(item.price * item.quantity)}
+                  </div>
+
+                  {/* Delete */}
+                  <button
+                    onClick={() => {
+                      removeFromCart(item.id);
+                      toast(`Removed "${item.name}" from cart`, 'info');
+                    }}
+                    className="p-2.5 rounded-xl text-[#717974] dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
                 </div>
-                
-                {appliedPromo && (
-                  <div className="flex justify-between items-center text-green-600">
-                    <span>Discount ({appliedPromo})</span>
-                    <span className="font-semibold">-₹{discountAmount.toFixed(2)}</span>
-                  </div>
-                )}
-                
+              </div>
+            ))}
+
+            <Link 
+              to="/products" 
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00241a] dark:text-[#a3d0be] pt-4"
+            >
+              <ArrowLeft className="w-4 h-4" /> Continue Shopping
+            </Link>
+          </div>
+
+          {/* Order Summary Sidebar */}
+          <div className="lg:col-span-4 space-y-6 sticky top-24">
+            <div className="bg-white dark:bg-[#1c2722] p-7 rounded-3xl border border-[#e7e8e9] dark:border-[#2e3a35] shadow-card space-y-6">
+              <h2 className="font-headline font-bold text-xl text-[#00241a] dark:text-white pb-5 border-b border-[#e7e8e9] dark:border-[#2e3a35]">
+                Order Summary
+              </h2>
+
+              <div className="space-y-3.5 text-sm text-[#414845] dark:text-gray-300">
                 <div className="flex justify-between items-center">
-                  <div className="flex items-center">
-                    <Truck className="w-4 h-4 text-gray-500 mr-2" />
-                    <span className="text-gray-600">Shipping</span>
-                  </div>
-                  <span className="font-semibold text-gray-900">
-                    {shippingCost === 0 ? (
-                      <span className="text-green-600">Free</span>
-                    ) : (
-                      `₹${shippingCost.toFixed(2)}`
-                    )}
+                  <span>Subtotal ({cartItems.length} items)</span>
+                  <span className="font-semibold text-[#191c1d] dark:text-white">{formatPrice(totalPrice)}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span>Shipping</span>
+                  <span className="font-semibold">
+                    {shippingCost === 0 ? <span className="text-emerald-600 dark:text-emerald-400 font-bold">FREE ✓</span> : formatPrice(shippingCost)}
                   </span>
                 </div>
-                
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Tax</span>
-                  <span className="font-semibold text-gray-900">₹{taxAmount.toFixed(2)}</span>
+                  <span>GST (8%)</span>
+                  <span className="font-semibold text-[#191c1d] dark:text-white">{formatPrice(taxAmount)}</span>
+                </div>
+
+                {appliedPromo && (
+                  <div className="flex justify-between items-center text-emerald-600 dark:text-emerald-400 font-bold">
+                    <span>Promo: {appliedPromo}</span>
+                    <span>-{formatPrice(discountAmount)}</span>
+                  </div>
+                )}
+
+                <div className="pt-4 border-t border-[#e7e8e9] dark:border-[#2e3a35] flex justify-between items-center">
+                  <span className="font-headline font-bold text-lg text-[#00241a] dark:text-white">Order Total</span>
+                  <span className="font-headline font-extrabold text-xl text-[#00241a] dark:text-[#a3d0be]">{formatPrice(orderTotal)}</span>
                 </div>
                 
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xl font-bold text-gray-900">Total</span>
-                    <span className="text-2xl font-bold text-gray-900">₹{orderTotal.toFixed(2)}</span>
+                {/* Promo Input */}
+                <form onSubmit={handleApplyPromo} className="flex gap-2">
+                  <div className="relative flex-1">
+                    <input
+                      type="text"
+                      placeholder="Promo code (AUTUMN10)"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value)}
+                      className="w-full bg-[#f3f4f5] dark:bg-[#222e29] border border-[#e7e8e9] dark:border-[#2e3a35] text-sm px-4 py-3 pr-10 rounded-2xl text-[#191c1d] dark:text-white placeholder-[#717974] dark:placeholder-gray-500 focus:outline-none focus:border-[#00241a] dark:focus:border-[#a3d0be] transition-colors"
+                    />
+                    <Tag className="w-3.5 h-3.5 text-[#717974] absolute right-3 top-3.5" />
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-[#fd6c1a] text-white text-xs font-bold uppercase tracking-wider px-4 py-3 rounded-2xl hover:bg-[#e8480a] transition-colors flex-shrink-0 shadow-orange"
+                  >
+                    Apply
+                  </button>
+                </form>
+
+                {/* Checkout CTA */}
+                <button
+                  onClick={() => navigate('/checkout')}
+                  className="w-full btn-primary py-4 text-sm justify-center gap-2"
+                >
+                  Proceed to Checkout <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-[#717974] dark:text-gray-400 pt-1">
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+                    Secure Checkout
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Truck className="w-3.5 h-3.5 text-emerald-500" />
+                    Free Returns
                   </div>
                 </div>
               </div>
-              
-              {/* Free Shipping Notice */}
-              {totalPrice < 50 && (
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-4 mb-6">
-                  <div className="flex items-start">
-                    <AlertCircle size={20} className="text-blue-600 flex-shrink-0 mr-3 mt-0.5" />
-                    <div>
-                      <p className="text-blue-800 font-medium mb-1">Almost there!</p>
-                      <p className="text-blue-700 text-sm">
-                        Add ₹{(50 - totalPrice).toFixed(2)} more to qualify for FREE shipping!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-              
-              {/* Security Badge */}
-              <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                <div className="flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-green-600 mr-2" />
-                  <span className="text-sm text-gray-700">Secure checkout protected by SSL</span>
-                </div>
-              </div>
-              
-              {/* Checkout Button */}
-              <Link
-                to="/checkout"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold text-lg flex items-center justify-center hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl group"
-              >
-                <span>Proceed to Checkout</span>
-                <ArrowLeft className="w-5 h-5 ml-2 rotate-180 transition-transform group-hover:translate-x-1" />
-              </Link>
             </div>
           </div>
         </div>

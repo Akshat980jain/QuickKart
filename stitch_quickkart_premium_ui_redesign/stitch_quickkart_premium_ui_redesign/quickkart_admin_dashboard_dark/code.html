@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickKart Admin Dashboard | Dark Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "outline": "#8a938e",
+                        "outline-variant": "#414845",
+                        "on-primary-container": "#79a694",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#a3d0be",
+                        "on-tertiary": "#303030",
+                        "background": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#343434",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-tertiary-container": "#9e9c9c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed": "#beedd9",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#002117",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-primary": "#3c6658",
+                        "on-secondary": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "on-primary": "#08372b",
+                        "on-surface-variant": "#c0c8c3",
+                        "on-background": "#e5e2e1",
+                        "secondary": "#c8c6c5",
+                        "secondary-container": "#474746",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "tertiary": "#c8c6c6",
+                        "surface": "#131313",
+                        "on-secondary-container": "#b7b5b4",
+                        "primary-container": "#0d3b2e",
+                        "on-primary-fixed-variant": "#234e40",
+                        "primary-fixed-dim": "#a3d0be",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-tint": "#a3d0be"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Epilogue"],
+                        "title-md": ["Epilogue"],
+                        "label-sm": ["Epilogue"],
+                        "display-lg": ["Epilogue"],
+                        "body-md": ["Epilogue"],
+                        "headline-lg": ["Epilogue"],
+                        "body-lg": ["Epilogue"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Epilogue', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2D2D2D;
+        }
+        .sparkline-canvas {
+            width: 100%;
+            height: 40px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2D2D2D;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant/20 hidden md:flex flex-col fixed h-full z-30">
+<div class="px-6 py-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">QuickKart</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4 custom-scrollbar overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-title-md text-[16px]">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">analytics</span>
+<span class="font-title-md text-[16px]">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">inventory_2</span>
+<span class="font-title-md text-[16px]">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">shopping_bag</span>
+<span class="font-title-md text-[16px]">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">group</span>
+<span class="font-title-md text-[16px]">Customers</span>
+</a>
+<div class="pt-8 pb-2 px-4">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Preferences</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">settings</span>
+<span class="font-title-md text-[16px]">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">help_outline</span>
+<span class="font-title-md text-[16px]">Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-3 p-2 bg-surface-container rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a high-end luxury e-commerce manager. The person is dressed in minimalist black attire with soft, cinematic lighting against a dark, moody background. The photography style is editorial, crisp, and sophisticated, matching a premium dark-themed administrative dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbUpx7LsCpxuQVOh_CshuGg6CYgBYFmFoyU6J-Q7vaio3JLAmxfqTrdf_jaRmMf4F_9XzekAvSOK98fsU0urAYI9KMKg22Xqhj9J7WSqqb8rDtjDsmPtuVIuW0sJX4FCY0UyNvX5-6L6uh5vpk3oQI6CjTBm3clbgN5dcGMTaDX7-qicoD4ciMtlQRRr72mSWhDH1w307uq4Wd29iqo-G7v8Ioa3VzuM2mYplzthVNKS3E_Nho1qaeeOEgoDnKxV7B2biaadJE7YU"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Alexander Vance</p>
+<p class="text-xs text-outline truncate">Premium Admin</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 flex flex-col min-w-0">
+<!-- Header -->
+<header class="h-20 flex items-center justify-between px-margin-desktop sticky top-0 bg-background/80 backdrop-blur-xl z-20 border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-lg text-[24px] font-bold tracking-tight">Executive Dashboard</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="bg-surface-container-low border border-outline-variant/30 rounded-full pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all w-64" placeholder="Global Search..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<section class="p-margin-desktop space-y-stack-lg max-w-container-max mx-auto w-full">
+<!-- High-Density Stat Cards (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<div>
+<p class="text-outline text-sm font-medium">Total Revenue</p>
+<h3 class="text-3xl font-bold mt-1">$128,430.00</h3>
+</div>
+<div class="mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+<svg class="sparkline-canvas" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0,35 Q10,15 20,25 T40,10 T60,30 T80,5 T100,20" fill="none" stroke="#a3d0be" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-xl flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+8.2%</span>
+</div>
+<div>
+<p class="text-outline text-sm font-medium">Total Orders</p>
+<h3 class="text-3xl font-bold mt-1">2,841</h3>
+</div>
+<div class="mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+<svg class="sparkline-canvas" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0,30 Q15,35 30,15 T50,25 T75,10 T100,5" fill="none" stroke="#a3d0be" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-xl flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<span class="text-xs font-bold text-error bg-error-container/20 px-2 py-1 rounded-full">-2.4%</span>
+</div>
+<div>
+<p class="text-outline text-sm font-medium">Conversion Rate</p>
+<h3 class="text-3xl font-bold mt-1">4.32%</h3>
+</div>
+<div class="mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+<svg class="sparkline-canvas" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0,5 Q20,35 40,20 T70,30 T100,35" fill="none" stroke="#ffb4ab" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel p-6 rounded-2xl flex flex-col justify-between group hover:border-primary/50 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-xl flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">+18%</span>
+</div>
+<div>
+<p class="text-outline text-sm font-medium">New Customers</p>
+<h3 class="text-3xl font-bold mt-1">842</h3>
+</div>
+<div class="mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+<svg class="sparkline-canvas" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0,38 Q10,38 25,20 T50,5 T80,15 T100,2" fill="none" stroke="#a3d0be" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Performance Chart Placeholder -->
+<div class="lg:col-span-2 glass-panel rounded-2xl p-8 relative overflow-hidden h-[450px] flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-lg text-[22px] font-bold">Revenue Growth</h3>
+<p class="text-outline text-sm">Monthly performance analytics over the last quarter.</p>
+</div>
+<select class="bg-surface-container border border-outline-variant/30 rounded-lg text-sm px-3 py-1.5 focus:ring-primary outline-none">
+<option>Last 3 Months</option>
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="flex-1 flex items-center justify-center relative">
+
+<div class="z-10 text-center">
+<p class="text-outline text-sm font-medium tracking-widest uppercase mb-2">Real-time Traffic Stream</p>
+<div class="flex gap-1 justify-center">
+<div class="w-1 h-8 bg-primary animate-[bounce_1.2s_infinite]"></div>
+<div class="w-1 h-12 bg-primary/80 animate-[bounce_1s_infinite_0.1s]"></div>
+<div class="w-1 h-16 bg-primary/60 animate-[bounce_1.4s_infinite_0.2s]"></div>
+<div class="w-1 h-10 bg-primary/40 animate-[bounce_1.1s_infinite_0.3s]"></div>
+<div class="w-1 h-14 bg-primary/20 animate-[bounce_1.3s_infinite_0.4s]"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-8 text-xs text-outline px-4">
+<span>OCT</span><span>NOV</span><span>DEC</span><span>JAN</span><span>FEB</span><span>MAR</span>
+</div>
+</div>
+<!-- Active Sessions / User Activity -->
+<div class="glass-panel rounded-2xl p-8 flex flex-col h-[450px]">
+<h3 class="font-headline-lg text-[20px] font-bold mb-6">User Flow</h3>
+<div class="space-y-6 flex-1 overflow-y-auto custom-scrollbar pr-2">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full flex-shrink-0 border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">ads_click</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium">Direct Search</span>
+<span class="text-xs text-outline">45%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 45%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full flex-shrink-0 border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">share</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium">Social Media</span>
+<span class="text-xs text-outline">28%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary/70" style="width: 28%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full flex-shrink-0 border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium">Email Campaigns</span>
+<span class="text-xs text-outline">15%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary/40" style="width: 15%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full flex-shrink-0 border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">groups</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium">Referral Links</span>
+<span class="text-xs text-outline">12%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary/20" style="width: 12%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant/20">
+<button class="w-full py-3 bg-surface-container-high rounded-xl text-sm font-bold hover:bg-primary hover:text-on-primary transition-all">
+                            View Detailed Report
+                        </button>
+</div>
+</div>
+</div>
+<!-- Top Performing Products Table -->
+<div class="glass-panel rounded-2xl overflow-hidden">
+<div class="px-8 py-6 flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<h3 class="font-headline-lg text-[22px] font-bold">Top Performing Products</h3>
+<p class="text-outline text-sm">Reviewing highest turnover inventory items.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant/30 rounded-lg text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 border border-outline-variant/30 rounded-lg text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container/50">
+<th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-outline">Product</th>
+<th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-outline">Category</th>
+<th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-outline">Sales</th>
+<th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-outline">Revenue</th>
+<th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-outline">Status</th>
+<th class="px-8 py-4 text-xs font-bold uppercase tracking-widest text-outline">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container/30 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A high-quality product photograph of a sleek, minimalist ceramic vase with a matte finish. The product is shot in a professional studio setting with sharp focus, soft moody shadows, and a dark obsidian backdrop, reflecting the premium luxury e-commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACjXw46Z6Ro9r5I4Xef88_q79e_DLlU6HZtf9PG8TYkgPm_xD-Rrgu_W86s4799fIkNhgtlzV5GbktOvs4EObCEPus40zTxO7hX4F6wLYbd7yWf2ajFfcR4R_Lx4NXojkfYL24a8bimGrFlQKonGjMRPTuM20y7lf55PBvoRSH_qSj0oWe1RPdQSLhBZ6t1m0bOsXe_CK6mCAcjoZg4DlSNr_gvYZ_qw0WKXlhBgfe0Qy9Rg9r9TeSOI1am2GxmxQDumHE-iSiB7o"/>
+</div>
+<div>
+<p class="text-sm font-bold">Obsidian Vase</p>
+<p class="text-xs text-outline">SKU: OK-1029</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm">Home Decor</span>
+</td>
+<td class="px-8 py-4 font-medium">842 Units</td>
+<td class="px-8 py-4 font-bold text-primary">$42,100</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">In Stock</span>
+</td>
+<td class="px-8 py-4">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A macro studio shot of a designer metallic watch with a dark emerald face. High-end lighting glints off the polished edges, set against a deep charcoal textured background. The aesthetic is extremely luxurious and sophisticated, aligning with the dark mode interface of the dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLcjGKRzG4DIPlmGVm6rQa_es9bfOITJqBxdqsGxqFs7Ya7djYsX_yKfUiWJESUYu4opHx4t9MiWfOeJznh_Kgm8QqJTmgYxWo4tScRsRC-pRb5zZY9OaQZRhv2DTpkF-dGEJcUijoJTBH94nY33aWym8dQDoI5dtKoFPjYEkSyiiMWaPhrQiQn89hEogWDwA6e7HDp4ENHr07anLJvdtC77h99fQYzG6U2yu9HWN2xqWgdGPY5W7V-flhBsLCBBegwhOm-MZqR8Y"/>
+</div>
+<div>
+<p class="text-sm font-bold">Emerald Chronograph</p>
+<p class="text-xs text-outline">SKU: OK-8821</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm">Accessories</span>
+</td>
+<td class="px-8 py-4 font-medium">412 Units</td>
+<td class="px-8 py-4 font-bold text-primary">$185,400</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">In Stock</span>
+</td>
+<td class="px-8 py-4">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/30 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A luxury leather minimalist backpack in deep midnight black, displayed in a high-end fashion studio setting with soft top lighting creating subtle highlights. The dark workspace environment enhances the premium, sophisticated nocturnal mood of the branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzQPqiLxLMMzzYijO0wCqjBYuhDo2TAG27PW6OdwwJFTYggu_5kZGd0JflJYa8MzFVdgP5cpV_Dho5OOmZJFT4psPcWqFwPlT0O14uSvicr3j2bPrBn_bT7SXfuKauU_Cpy-t3iqQh2iQRZwjxJaO0_I-CBh1MzafOa4UMsfBzSEIfC6RTuuDlt_GZq20ztvMlSEC2d4tWtT_2sRMR9UNBtpITFlBcmB2vcwusOjptjg2r-8FBOKdRgvpD9WZJAacMx_4-DQsmAOg"/>
+</div>
+<div>
+<p class="text-sm font-bold">Midnight Pack</p>
+<p class="text-xs text-outline">SKU: OK-4412</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm">Apparel</span>
+</td>
+<td class="px-8 py-4 font-medium">12 Units</td>
+<td class="px-8 py-4 font-bold text-primary">$3,840</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-error/10 text-error border border-error/20">Low Stock</span>
+</td>
+<td class="px-8 py-4">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-8 py-4 bg-surface-container/30 flex justify-between items-center">
+<p class="text-xs text-outline">Showing 3 of 128 products</p>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 text-xs font-bold border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-all">Previous</button>
+<button class="px-4 py-1.5 text-xs font-bold border border-outline-variant/30 rounded-lg bg-primary text-on-primary">Next</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-auto py-12 px-margin-desktop border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary mb-4">QuickKart</h1>
+<p class="text-outline text-sm leading-relaxed">Advanced e-commerce intelligence platform for high-end digital curators and luxury enterprise management.</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-on-surface font-semibold text-sm uppercase tracking-widest">Platform</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Executive Collections</a></li>
+<li><a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Global Shipping</a></li>
+<li><a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-on-surface font-semibold text-sm uppercase tracking-widest">Support</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Personal Concierge</a></li>
+<li><a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-on-surface font-semibold text-sm uppercase tracking-widest">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-12 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-outline text-xs">© 2024 QuickKart Premium. All rights reserved.</p>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation (Bottom Bar) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-background/80 backdrop-blur-xl border-t border-outline-variant/30 flex items-center justify-around px-4 z-40">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px]">Data</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px]">Stock</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Config</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.opacity = '0.9';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+                card.style.opacity = '1';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+                card.style.opacity = '1';
+            });
+        });
+
+        // Initialize any other dynamic JS logic if needed
+        console.log("QuickKart Admin Dashboard Initialized");
+    </script>
+</body></html>

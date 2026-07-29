@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hot Deals | QuickKart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&family=Hanken+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .deal-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .deal-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.08);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#a3d0be",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673b34",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#beedd9",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#fd6c1a",
+                        "inverse-surface": "#2e3132",
+                        "outline-variant": "#c0c8c3",
+                        "tertiary-fixed-dim": "#f6b8ae",
+                        "on-surface-variant": "#414845",
+                        "tertiary": "#371410",
+                        "on-secondary-container": "#581e00",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-tertiary-container": "#c88f86",
+                        "on-primary-fixed-variant": "#234e40",
+                        "on-background": "#191c1d",
+                        "surface-tint": "#3c6658",
+                        "secondary-fixed-dim": "#ffb596",
+                        "on-surface": "#191c1d",
+                        "primary": "#00241a",
+                        "secondary": "#a33e00",
+                        "on-secondary-fixed": "#360f00",
+                        "on-tertiary-fixed": "#33110c",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed-variant": "#7c2e00",
+                        "on-primary-container": "#79a694",
+                        "on-error-container": "#93000a",
+                        "outline": "#717974",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#512923",
+                        "surface-bright": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#0d3b2e",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#002117"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Epilogue"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Epilogue"],
+                        "display-lg": ["Epilogue"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-surface shadow-sm">
+<nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-12">
+<a class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight" href="#">QuickKart</a>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">New Arrivals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Brands</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Curated</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search deals..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-all active:scale-95 relative">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+<span class="absolute top-1 right-1 w-4 h-4 bg-secondary text-white text-[10px] flex items-center justify-center rounded-full">3</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a stylish person with modern glasses and a warm smile, set against a clean minimalist studio background with soft directional lighting that highlights facial features and texture, matching the premium QuickKart aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2nSIGgW7atPf3NaqqKpc8YW4wq1EjFxhzB2kuEiHdYpW2yOHJ2iYQJe5URPdd7FsyhL2vHEHkT9IKyzuvbnfwACWCTXfUk3-5yEqPyd6plvaseoduzBgYa-pXuaFtQTbVH3bZwuvNED9ubmLqa8mjH6bJoSDp7mLamyyrxL2z9mFaEoS4vOHzwbomp-8If8Id9jzB_4BvFFlfbxu_h46tFZAol-gnjCsPP-xGaciz3NJh-QFHZo49FgTC325pRWZMJjdITT5_Lpg"/>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section: Hot Deals -->
+<section class="px-gutter pt-12 pb-section-padding max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main High-Contrast Banner -->
+<div class="lg:col-span-8 relative rounded-3xl overflow-hidden min-h-[400px] flex items-end p-12 bg-primary">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A high-end cinematic product shot of premium consumer electronics like minimalist headphones and smartwatches, arranged artfully with dramatic high-contrast lighting and deep shadows. The color palette is dark emerald and obsidian with gold accents, creating a sense of luxury and urgency for a hot deals promotion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB6KMmT-EUe3Oa8CHumvYE-XF7B5cwQFcPjN4hrf1WYmk5vuzDUqBAiGOR1d6lQ5ms7GSWflXqnKUd22qUVmtqxlXn4nyuj-kOATg1G6es_-TQxNQ38FgEv8vD2wv8Uyc5DIyJKW7HizW7hCZ9lFJ_wMG5a13XdAaYlymiE9-Gc09VcOCwd98Tz1KeZPtdB6DKD7prLUDbm057IDoW4l10P4UccgNYWzdfuhdmcCSwqNARECovIDwjt74Tl7ISeK37Xo3NPyrDcLE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full md:w-2/3">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary text-white font-label-sm text-label-sm mb-4">LIMITED TIME ONLY</span>
+<h1 class="font-display-lg text-display-lg text-white mb-6">Hot Deals of the Week</h1>
+<p class="text-white/80 font-body-lg text-body-lg mb-8 leading-relaxed">Save up to 60% on curated essentials. These exclusive discounts disappear in less than 24 hours.</p>
+<button class="bg-on-secondary-container text-white px-8 py-4 rounded-xl font-headline-md text-headline-md hover:bg-opacity-90 transition-all active:scale-95 flex items-center gap-3">
+                            Explore All Deals
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Stats Bento -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 bg-surface-container-low rounded-3xl p-8 flex flex-col justify-center border border-outline-variant/30">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest mb-2">Total Savings Today</span>
+<div class="font-display-lg text-display-lg text-primary">$42,890.00</div>
+<p class="text-on-surface-variant font-body-md text-body-md mt-4">Calculated across all active QuickKart members in the last 24 hours.</p>
+</div>
+<div class="flex-1 bg-primary-container rounded-3xl p-8 flex flex-col justify-center border border-primary">
+<span class="text-on-primary-container font-label-sm text-label-sm uppercase tracking-widest mb-2">Active Deals</span>
+<div class="font-display-lg text-display-lg text-on-primary-container">1,204</div>
+<div class="mt-4 flex items-center gap-2 text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-body-md text-body-md">15 new deals added in the last hour</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filtering & Search Row -->
+<section class="px-gutter mb-12 max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row gap-6 items-center justify-between bg-white p-6 rounded-2xl shadow-sm">
+<div class="flex flex-wrap items-center gap-4 w-full md:w-auto">
+<button class="px-6 py-2.5 rounded-full bg-primary text-white font-label-sm text-label-sm">All Deals</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-sm text-label-sm">Technology</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-sm text-label-sm">Home Office</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-sm text-label-sm">Wellness</button>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">tune</span>
+<select class="appearance-none bg-surface-container-low border-none rounded-xl pl-10 pr-10 py-2.5 w-full md:w-48 font-label-sm text-label-sm focus:ring-2 focus:ring-primary/20">
+<option>Price: Low to High</option>
+<option>Biggest Discount</option>
+<option>Ending Soon</option>
+<option>Newest</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Deal Cards Grid -->
+<section class="px-gutter pb-section-padding max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Deal Card 1 -->
+<div class="group deal-card-hover bg-white rounded-2xl overflow-hidden flex flex-col h-full border border-surface-container">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist ergonomic designer chair in charcoal fabric with wood accents, shot in a high-key bright architectural space. Soft natural light flows from a large window creating gentle shadows. Premium aesthetic, product-focused, clean and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9B6IckPxxrzxQRIzh9IrEN-F2N00yhT75F8yZ_E981CKNvo94mXdvCRNyxIr4swgpNO9vWEa2YanomWRcKHkIITbZLiyFbNob6KjjrCwDkERMilztDz9llophRzqajNAzJ-BpNcgJg3polbm8vNU8ilH6Asj6HKQCa1Y_2jidN0wEgouoy9t__QMXgFroQ1CGfCbp1GKRcSKl82gmju8vpH_Ox3cszypQtNdRMqMyKPN2E-l7j5Uqf0DAsvwylxETTJo8F9Ravbc"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-secondary text-white font-bold px-3 py-1 rounded-lg text-label-sm">-45%</span>
+<span class="bg-white/90 backdrop-blur-sm text-primary font-bold px-3 py-1 rounded-lg text-label-sm">BEST SELLER</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 glass-effect p-2 rounded-xl flex justify-between items-center">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="font-label-sm text-label-sm countdown-timer" data-until="3600">02:45:12</span>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Ends Soon</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-2 uppercase tracking-wide">Furniture</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Sculpt Ergonomic Chair</h3>
+<div class="mt-auto">
+<div class="flex items-end gap-3 mb-6">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">$249</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through opacity-60 mb-1">$450</span>
+</div>
+<button class="w-full bg-primary text-white py-3 rounded-xl font-label-sm text-label-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-2 group/btn">
+                                View Deal
+                                <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="group deal-card-hover bg-white rounded-2xl overflow-hidden flex flex-col h-full border border-surface-container">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Premium brushed titanium noise-canceling headphones resting on a marble surface. The lighting is moody and focused, highlighting the metallic texture and leather padding. A shallow depth of field keeps the background soft and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXWUaCns1AvfZ41r17UVlGhyMyOGt4z6QSE9XqD_8c1LjqdvbTR3Dp2c5Sw9tnv_ImENL3I4YB2O5g1kiM3YNhFndeqsttkL0pnloijSjx48bQ4WZysW7eh8TGt45YCf2RimzSPfseiVEcqT9GOZBgTKU81yIJVBVj6UKyaKM2OLMwxWG0ZIym8HKrhrVXLcry_i49AVn__7tvXoPeZvmXw0SgnStqGrAOn7EagsScCT5EvS3QHvWvQOrDTA3M1d2Riubuu7LE4zs"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-white font-bold px-3 py-1 rounded-lg text-label-sm">-30%</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 glass-effect p-2 rounded-xl flex justify-between items-center">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="font-label-sm text-label-sm">05:12:44</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-2 uppercase tracking-wide">Audio</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Titanium Wireless Max</h3>
+<div class="mt-auto">
+<div class="flex items-end gap-3 mb-6">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">$349</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through opacity-60 mb-1">$499</span>
+</div>
+<button class="w-full bg-primary text-white py-3 rounded-xl font-label-sm text-label-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-2 group/btn">
+                                View Deal
+                                <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 3 -->
+<div class="group deal-card-hover bg-white rounded-2xl overflow-hidden flex flex-col h-full border border-surface-container">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ultra-slim, high-performance laptop open on a clean desk next to a ceramic cup of coffee. Morning sunlight creates sharp, clean geometric shadows. Minimalist and productive mood, soft color palette of creams and light woods." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcQ9QI1F6xyLb0q7KscWCVGhbqOJAHb29Klebt-mPyfg1oa6TRELKX7Vvh9ldInLKIVbXyE2QOguP1OBZzNgpNJZQNhbpZfLIwZUXih5SClZz2YZ_Pv6nVnFbx9ntPp6N9B6bmmCxhldkRo7oSXeQgL_822w4MjcWU6lF9lqPzkvH6kmcbhSnTZMvBBWp9SiyBHu-XrWBG4zN1QgSageoObbSswBtPr6kT7RF00hPy-NDY835DCvD4b-LPhjuTi2_0LcL4VoVNUIY"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-white font-bold px-3 py-1 rounded-lg text-label-sm">-25%</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-2 uppercase tracking-wide">Computing</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Aero Slim 15" Pro</h3>
+<div class="mt-auto">
+<div class="flex items-end gap-3 mb-6">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">$899</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through opacity-60 mb-1">$1,199</span>
+</div>
+<button class="w-full bg-primary text-white py-3 rounded-xl font-label-sm text-label-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-2 group/btn">
+                                View Deal
+                                <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 4 -->
+<div class="group deal-card-hover bg-white rounded-2xl overflow-hidden flex flex-col h-full border border-surface-container">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A curated set of organic skincare products in frosted glass bottles, arranged on a textured stone surface with small water droplets. Soft, diffused lighting creates a spa-like, tranquil atmosphere. Neutral tones of sage and cream." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAczWkUZ9FlsHoxCQKTZpgs3bEQCNU4NCyqqsyo47PYqGjO0oxobP9ckBb6E81EJLoyL4IyuysqScjHV_EEME9Laywi9VU4eRJG72iaaA1aEdxT2y9iepx0W0Tenm2JhlgrtTPbK0Hb1rNV9sU7hNScIYhGInRGY2GJUErkZCvHnCeQHW3GhubEMJU6bzFVrnILU2AiB9rDjXieBusXr47gcNnzvZmxbrSAx_5Fu41eh8hniF3z-BCgAi03neYSLes3IFJ55lsm9gg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-white font-bold px-3 py-1 rounded-lg text-label-sm">-50%</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-2 uppercase tracking-wide">Wellness</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Lumia Renewal Kit</h3>
+<div class="mt-auto">
+<div class="flex items-end gap-3 mb-6">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">$45</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through opacity-60 mb-1">$90</span>
+</div>
+<button class="w-full bg-primary text-white py-3 rounded-xl font-label-sm text-label-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-2 group/btn">
+                                View Deal
+                                <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="bg-primary text-on-primary py-section-padding">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-display-lg text-display-lg mb-6">Never miss a drop.</h2>
+<p class="text-white/70 font-body-lg text-body-lg mb-0">Join 50,000+ shoppers who receive our 'Midnight Drops' every Tuesday. Curated deals, early access, and no spam.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow bg-white/10 border border-white/20 rounded-xl px-6 py-4 text-white focus:ring-2 focus:ring-secondary/50 focus:border-transparent outline-none transition-all placeholder:text-white/40" placeholder="Your email address" type="email"/>
+<button class="bg-secondary text-white px-8 py-4 rounded-xl font-headline-md text-headline-md hover:brightness-110 active:scale-95 transition-all whitespace-nowrap">
+                        Sign Up Now
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container py-section-padding border-t border-white/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter w-full px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-6">
+<span class="font-headline-md text-headline-md text-on-primary">QuickKart</span>
+<p class="font-body-md text-body-md opacity-70">Elevating the way you discover and save on premium brands. Curated by experts, delivered to your door.</p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm mb-6 uppercase tracking-widest text-secondary">Quick Links</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">About Us</a></li>
+<li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">Contact</a></li>
+<li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm mb-6 uppercase tracking-widest text-secondary">Support</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">Shipping & Returns</a></li>
+<li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">Privacy Policy</a></li>
+<li><a class="text-on-primary-fixed-variant opacity-80 hover:opacity-100 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm mb-6 uppercase tracking-widest text-secondary">Social</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-primary">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-primary">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-primary">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-white/5 text-center md:text-left">
+<span class="font-label-sm text-label-sm opacity-50">© 2024 QuickKart. All rights reserved.</span>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for countdown timers
+        function updateTimers() {
+            const timers = document.querySelectorAll('.countdown-timer');
+            timers.forEach(timer => {
+                let text = timer.innerText;
+                let parts = text.split(':');
+                let h = parseInt(parts[0]);
+                let m = parseInt(parts[1]);
+                let s = parseInt(parts[2]);
+
+                if (s > 0) s--;
+                else {
+                    if (m > 0) { m--; s = 59; }
+                    else {
+                        if (h > 0) { h--; m = 59; s = 59; }
+                    }
+                }
+
+                timer.innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            });
+        }
+        setInterval(updateTimers, 1000);
+    </script>
+</body></html>

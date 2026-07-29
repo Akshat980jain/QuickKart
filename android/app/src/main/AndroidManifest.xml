@@ -94,6 +94,41 @@
             android:theme="@style/Theme.QuickKart"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Wishlist Activity -->
+        <activity
+            android:name=".activities.WishlistActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Order Tracking Activity -->
+        <activity
+            android:name=".activities.OrderTrackingActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.OrdersActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Loyalty Points Activity -->
+        <activity
+            android:name=".activities.LoyaltyPointsActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
+        <!-- Compare Activity -->
+        <activity
+            android:name=".activities.CompareActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/Theme.QuickKart" />
+
     </application>
 
 </manifest>

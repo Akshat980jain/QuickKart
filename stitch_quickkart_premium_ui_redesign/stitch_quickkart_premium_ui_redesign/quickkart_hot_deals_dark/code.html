@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickKart | Hot Deals of the Week</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "outline": "#8a938e",
+                        "outline-variant": "#414845",
+                        "on-primary-container": "#79a694",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#a3d0be",
+                        "on-tertiary": "#303030",
+                        "background": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#343434",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-tertiary-container": "#9e9c9c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed": "#beedd9",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#002117",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-primary": "#3c6658",
+                        "on-secondary": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "on-primary": "#08372b",
+                        "on-surface-variant": "#c0c8c3",
+                        "on-background": "#e5e2e1",
+                        "secondary": "#c8c6c5",
+                        "secondary-container": "#474746",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "tertiary": "#c8c6c6",
+                        "surface": "#131313",
+                        "on-secondary-container": "#b7b5b4",
+                        "primary-container": "#0d3b2e",
+                        "on-primary-fixed-variant": "#234e40",
+                        "primary-fixed-dim": "#a3d0be",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-tint": "#a3d0be"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Epilogue"],
+                        "title-md": ["Epilogue"],
+                        "label-sm": ["Epilogue"],
+                        "display-lg": ["Epilogue"],
+                        "body-md": ["Epilogue"],
+                        "headline-lg": ["Epilogue"],
+                        "body-lg": ["Epilogue"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Epilogue', sans-serif;
+        }
+        .glass-card {
+            background: rgba(32, 31, 31, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(45, 45, 45, 1);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(8, 55, 43, 0.4) 0%, rgba(19, 19, 19, 1) 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="dark overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-background/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-outline-variant/30">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-12">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">QuickKart</span>
+<div class="hidden md:flex gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Deals</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Collections</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">New In</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30 w-80">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md text-on-surface w-full ml-2" placeholder="Search curated deals..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<button class="hover:text-primary transition-colors duration-200 relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</nav>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section: Hot Deals of the Week -->
+<section class="relative w-full h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center scale-105" data-alt="A cinematic, high-contrast photograph of high-end luxury tech and fashion accessories arranged in a minimalist, nocturnal setting. The lighting is moody with deep obsidian shadows and sharp emerald green neon highlights tracing the edges of the sleek products. The composition is editorial and expansive, reflecting a sense of quiet authority and elite prestige." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASawN9zSl-YW8GmumWlpe_EKU0xRYbyorotA5-X5G8LwYQY0bXyjfWsV5jABW90g0JGIkBhUL0yweT4WTGWDFjOu5feYq1FJ63MJNzcZU53NMNqJpPt6jHZRwVOwi6vF2zdcsbBb40fsDTeVFdjlFOsHtOKlE1e1wMjR3OQODrfYXR5VBXCeOE4wQxb4sJpK3i1rK90yUuy2gvT1Zdp7qqznEs9FQgy37RgMAPBo5ZtdlYUDyUPUPm3GGFtK93bNGnML_I52l-hf0')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-primary/20 text-primary px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-widest border border-primary/30">Limited Time</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40"></div>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-none">Hot Deals <br/><span class="text-primary">of the Week</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                        Our most exclusive price drops on luxury curated items. Precision engineering meets sophisticated design at unrepeatable values.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-primary border border-primary/20 px-8 py-4 rounded-lg font-title-md text-title-md hover:bg-primary-container/80 transition-all active:scale-95 flex items-center gap-3">
+                            Explore All Deals
+                            <span class="material-symbols-outlined">trending_flat</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Countdown Micro-interaction -->
+<div class="absolute bottom-12 right-margin-desktop hidden xl:flex gap-8 items-center glass-card p-6 rounded-xl border border-white/5">
+<div class="text-center">
+<span class="block font-headline-lg text-headline-lg text-primary" id="days">04</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Days</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/30"></div>
+<div class="text-center">
+<span class="block font-headline-lg text-headline-lg text-primary" id="hours">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Hours</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/30"></div>
+<div class="text-center">
+<span class="block font-headline-lg text-headline-lg text-primary" id="minutes">45</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mins</span>
+</div>
+</div>
+</section>
+<!-- Main Content: Bento Grid of Deals -->
+<section class="px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Curated Exclusives</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Hand-picked by our concierge for the discerning collector.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-3 border border-outline-variant/30 rounded-full text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<button class="p-3 border border-outline-variant/30 rounded-full text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Featured Deal -->
+<div class="md:col-span-8 group relative rounded-2xl overflow-hidden glass-card flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 h-[400px] relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Close-up detailed photograph of a luxury titanium chronograph watch featuring an emerald green dial and leather strap. The image uses sharp, moody studio lighting against a dark granite surface. Minimalist aesthetic with focus on the precision mechanics and high-end materials. Deep shadows and vibrant green highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5I976ocf6bURkxG0CZuHTOfrncgxylnqMOc9UYLUN5H42qVoflEbyIHsl8SDDPeNudOjUVOhtgKKMgvSsy1DA_VeCLTzYkvjlsMNnuOlFWgywSOkRJ0AYLOF1OCXbh0wQqerk01VY13vUT0uj0ecRHEc-jH24TyCJOfnbagRlUYvTnRMhg2FFASNaX0LKRplG7HNG1ibRDrg9fNmBURD9nsAKaZGnuueiCPE-KnjkgvgnL_25UjwB-WPwdErsie3QTWYkZ30dwCE')"></div>
+<div class="absolute top-4 left-4 bg-error text-on-error font-label-sm text-label-sm px-3 py-1 rounded-full">-35%</div>
+</div>
+<div class="w-full md:w-1/2 p-8 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2 block">Watchmaking Excellence</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-4 leading-tight">Emerald Horizon Titanium Chrono</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Limited edition of 500. Features a caliber-7 mechanical movement with 72-hour power reserve.</p>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="font-headline-lg text-headline-lg text-primary">$4,250</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-through">$6,800</span>
+</div>
+</div>
+<button class="w-full py-4 border border-outline-variant hover:border-primary hover:bg-primary/5 transition-all rounded-lg flex items-center justify-center gap-2 text-on-surface font-title-md">
+                            View Deal
+                            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Vertical Deal Card -->
+<div class="md:col-span-4 group glass-card rounded-2xl overflow-hidden flex flex-col">
+<div class="h-64 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Sleek, minimalist matte black noise-cancelling headphones resting on a dark velvet stand. Subtle emerald lighting glows from the indicators. High-end product photography with soft-focus background and crisp foreground detail. The atmosphere is premium and quiet." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXnbiJ98HM9SimSg4kNxGh0r8R-6ZzqrU7cIX_Cxs-wMdChO3olJcAePKzXHc4erPAPFa7grVHHbZ5KHWVHDngwyspOSARzSYD2lwU92tX0GPoJqE6mJmXghWuoHw9aLRJ25WOyRTa1O6u_CfGU4s-OIJdAn7qeHwvQapMWsnEUqkZDJuRXkmob1fgtWLVD_cToIi2rkSGq-w8GqHqxgXLA45wHi9RbtVX0Hpyw8Hsft4CY8D9_F94neBcuTpRCyqIzmXBgy2MYW8')"></div>
+<div class="absolute top-4 left-4 bg-primary-container text-primary font-label-sm text-label-sm px-3 py-1 rounded-full">New Price</div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Sonic Pure MK-II</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary font-bold">$299</span>
+<span class="text-on-surface-variant text-sm line-through">$450</span>
+</div>
+</div>
+<button class="w-full py-3 border border-outline-variant hover:border-primary hover:bg-primary/5 transition-all rounded-lg flex items-center justify-center gap-2 text-on-surface font-label-sm">
+                            View Deal
+                        </button>
+</div>
+</div>
+<!-- Secondary Row -->
+<div class="md:col-span-4 group glass-card rounded-2xl overflow-hidden flex flex-col">
+<div class="h-64 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="A sleek, designer leather weekend bag in deep charcoal grey with silver hardware. Photographed in a minimalist dark hallway with a single beam of soft light highlighting the texture of the grain. High-end fashion editorial style with deep contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgQjU9OD0NYQ4CvmY4AqXu2ExnyKjoeR4T7p2yKcWAaL6BbIEvH7njm2j-Xb1FVx85YqvnFVFGrTVV-szsDi9rY24Iap4QFtzzLLTAfOAACmudxcwXTmNbCRm1Q0W6OdK-ZOi3yoPgklxBUpiWSoC8htPmYcErPddX_rdLkXLnVt4SDzD0Dz_K7eUx3My3Yg-Em34tNRSdg6fqIORIfvaoOW-cTc_UHUtZPJwkjCXGJBeL5TeWrSw40DE1681Uzcq20EnXZ6FutS0')"></div>
+<div class="absolute top-4 right-4 bg-background/60 backdrop-blur-md p-2 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="favorite">favorite</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">The Heritage Duffel</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary font-bold">$780</span>
+<span class="text-on-surface-variant text-sm line-through">$1,200</span>
+</div>
+</div>
+<button class="w-full py-3 border border-outline-variant hover:border-primary hover:bg-primary/5 transition-all rounded-lg flex items-center justify-center gap-2 text-on-surface font-label-sm">
+                            View Deal
+                        </button>
+</div>
+</div>
+<div class="md:col-span-4 group glass-card rounded-2xl overflow-hidden flex flex-col">
+<div class="h-64 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="High-end artisan glass decanter set on a dark wood bar. The liquid inside reflects soft emerald ambient light. Minimalist dark luxury aesthetic, sharp glass edges, and premium atmosphere. Dramatic lighting with deep blacks." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRFdC1VitQBR6EJ2ETCG0drO7DxwWFSbShTqiwhyVuzCQdNtZhL11ZJtgFSrGyE57YavxJGAx-evH1RROtwQlhva17FxE1276GLFxjydc7TkWWNIDlkem6pN-03-xcu302fTfzYyPk0SkCMwojxmQEGC-vLW5FOyasJOw14rByNX-w_Rsfc-EMXwHsimjNWNpkXJVENMAin_ENsrhlxdfoI-J4sskzJItAwao5kHH6kXH6WeWupCdhTo4lJtu9kV5h_BZg3Q68q1E')"></div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Obsidian Crystal Set</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary font-bold">$145</span>
+<span class="text-on-surface-variant text-sm line-through">$210</span>
+</div>
+</div>
+<button class="w-full py-3 border border-outline-variant hover:border-primary hover:bg-primary/5 transition-all rounded-lg flex items-center justify-center gap-2 text-on-surface font-label-sm">
+                            View Deal
+                        </button>
+</div>
+</div>
+<div class="md:col-span-4 group glass-card rounded-2xl overflow-hidden flex flex-col">
+<div class="h-64 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Top-down view of a minimalist workstation with a sleek aluminium mechanical keyboard, a leather desk mat, and a single designer pen. Low-key lighting with emerald green glow coming from the keyboard backlight. Editorial tech photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBc03FMM6uCnIH1fIeXBHVmWT-CbZgFrdWACtGq2XHIKh1JINotqqI2KOQzj_HoqE3ap4gvmG-al9Ke8avok7LVlTRzKZUsEk1Lg9AyAWc_Gnb2MGei54mvrbwsYkWx2obiYOJh98U0ZfU1_XggQrp6dGWUVn5Cyed29EjTwRkcReEL0oz1AC4FQ4WFbrsqQ88w7RUBHI8Q1n3aZ9ajgcublgDNT_jJhANVwny_rq2gfs7lmKm8S6PWPwuYEgjHlF6dH_6-FkN7dtw')"></div>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Linear Mechanical Suite</h3>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary font-bold">$420</span>
+<span class="text-on-surface-variant text-sm line-through">$580</span>
+</div>
+</div>
+<button class="w-full py-3 border border-outline-variant hover:border-primary hover:bg-primary/5 transition-all rounded-lg flex items-center justify-center gap-2 text-on-surface font-label-sm">
+                            View Deal
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Interest: Animated Divider/Background Element -->
+<div class="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent my-12"></div>
+<!-- Secondary Banner: Personal Concierge CTA -->
+<section class="px-margin-desktop mb-stack-lg max-w-container-max mx-auto">
+<div class="rounded-3xl p-12 relative overflow-hidden flex flex-col md:flex-row items-center gap-12 bg-surface-container-low border border-outline-variant/30">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-[-50%] left-[-20%] w-[100%] h-[200%] bg-primary/5 blur-[120px] rounded-full"></div>
+</div>
+<div class="md:w-2/3 relative z-10 text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Looking for something specific?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">Our personal concierge service can source rare timepieces, limited-run tech, and exclusive fashion items from across the globe.</p>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-10 py-4 rounded-full font-title-md text-title-md hover:bg-primary transition-all active:scale-95">Connect with Concierge</button>
+</div>
+<div class="md:w-1/3 relative z-10">
+<div class="relative w-48 h-48 mx-auto">
+<div class="absolute inset-0 border-2 border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-4 border border-primary/40 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[64px] text-primary">support_agent</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 full-width mt-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-bold text-primary block mb-6">QuickKart</span>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Curating the world's most desirable goods for the elite shopper. Experience the future of high-end commerce.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-6">Collections</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Exclusive Collections</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Global Shipping</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-6">Services</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Personal Concierge</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Authentication Service</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Private Events</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-6">Legal</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terms of Service</a></li>
+</ul>
+<div class="mt-8">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 QuickKart Premium. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for the countdown
+        function updateCountdown() {
+            const now = new Date();
+            // Mock target date: next Monday at 00:00:00
+            const target = new Date();
+            target.setDate(now.getDate() + (1 + 7 - now.getDay()) % 7);
+            target.setHours(0, 0, 0, 0);
+
+            const diff = target - now;
+            
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').textContent = d.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        // Parallax effect on hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('.scale-105');
+            if (heroImage) {
+                heroImage.style.transform = `scale(1.05) translateY(${scrolled * 0.1}px)`;
+            }
+        });
+    </script>
+</body></html>

@@ -47,54 +47,54 @@ const descriptions = {
 
 const imageUrls = {
   electronics: [
-    'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg',
-    'https://images.pexels.com/photos/4482891/pexels-photo-4482891.jpeg',
-    'https://images.pexels.com/photos/1706694/pexels-photo-1706694.jpeg'
+    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&auto=format&fit=crop&q=80'
   ],
   clothing: [
-    'https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg',
-    'https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg',
-    'https://images.pexels.com/photos/1306246/pexels-photo-1306246.jpeg'
+    'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&auto=format&fit=crop&q=80'
   ],
   home: [
-    'https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg',
-    'https://images.pexels.com/photos/1566308/pexels-photo-1566308.jpeg',
-    'https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg'
+    'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=500&auto=format&fit=crop&q=80'
   ],
   beauty: [
-    'https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg',
-    'https://images.pexels.com/photos/3785170/pexels-photo-3785170.jpeg',
-    'https://images.pexels.com/photos/3785156/pexels-photo-3785156.jpeg'
+    'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&auto=format&fit=crop&q=80'
   ],
   sports: [
-    'https://images.pexels.com/photos/4056531/pexels-photo-4056531.jpeg',
-    'https://images.pexels.com/photos/4162579/pexels-photo-4162579.jpeg',
-    'https://images.pexels.com/photos/4162577/pexels-photo-4162577.jpeg'
+    'https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&auto=format&fit=crop&q=80'
   ],
   books: [
-    'https://images.pexels.com/photos/1907785/pexels-photo-1907785.jpeg',
-    'https://images.pexels.com/photos/1907784/pexels-photo-1907784.jpeg',
-    'https://images.pexels.com/photos/1907783/pexels-photo-1907783.jpeg'
+    'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=500&auto=format&fit=crop&q=80'
   ],
   toys: [
-    'https://images.pexels.com/photos/163696/toy-car-toy-box-mini-163696.jpeg',
-    'https://images.pexels.com/photos/163695/toy-car-toy-box-mini-163695.jpeg',
-    'https://images.pexels.com/photos/163694/toy-car-toy-box-mini-163694.jpeg'
+    'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1558060370-d644479be6f7?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&auto=format&fit=crop&q=80'
   ],
   automotive: [
-    'https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg',
-    'https://images.pexels.com/photos/1149830/pexels-photo-1149830.jpeg',
-    'https://images.pexels.com/photos/1149829/pexels-photo-1149829.jpeg'
+    'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&auto=format&fit=crop&q=80'
   ],
   garden: [
-    'https://images.pexels.com/photos/1470171/pexels-photo-1470171.jpeg',
-    'https://images.pexels.com/photos/1470170/pexels-photo-1470170.jpeg',
-    'https://images.pexels.com/photos/1470169/pexels-photo-1470169.jpeg'
+    'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=500&auto=format&fit=crop&q=80'
   ],
   food: [
-    'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
-    'https://images.pexels.com/photos/1640776/pexels-photo-1640776.jpeg',
-    'https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg'
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=500&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=500&auto=format&fit=crop&q=80'
   ]
 };
 
@@ -122,7 +122,7 @@ function generateDiscount(): number {
   return 0;
 }
 
-export function generateMockProducts(count: number): Product[] {
+export function generateMockProducts(count: number = 20): Product[] {
   const products: Product[] = [];
 
   for (let i = 0; i < count; i++) {

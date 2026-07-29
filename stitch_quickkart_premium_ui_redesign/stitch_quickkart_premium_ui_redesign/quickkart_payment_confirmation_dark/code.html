@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout | QuickKart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#79a694",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary": "#303030",
+                        "on-primary-fixed": "#002117",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#beedd9",
+                        "primary-fixed-dim": "#a3d0be",
+                        "secondary-fixed": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#c8c6c6",
+                        "on-secondary": "#313030",
+                        "surface-container": "#201f1f",
+                        "surface-tint": "#a3d0be",
+                        "on-tertiary-container": "#9e9c9c",
+                        "secondary": "#c8c6c5",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-primary": "#08372b",
+                        "primary": "#a3d0be",
+                        "surface-bright": "#3a3939",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#8a938e",
+                        "surface-dim": "#131313",
+                        "surface-variant": "#353534",
+                        "surface-container-low": "#1c1b1b",
+                        "outline-variant": "#414845",
+                        "inverse-primary": "#3c6658",
+                        "on-primary-fixed-variant": "#234e40",
+                        "inverse-on-surface": "#313030",
+                        "secondary-container": "#474746",
+                        "background": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#343434",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "primary-container": "#0d3b2e",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#c0c8c3",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface": "#131313",
+                        "tertiary-fixed": "#e4e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "48px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Epilogue"],
+                        "body-lg": ["Epilogue"],
+                        "display-lg": ["Epilogue"],
+                        "label-sm": ["Epilogue"],
+                        "title-md": ["Epilogue"],
+                        "headline-lg": ["Epilogue"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2D2D2D;
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-container selection:text-primary">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-[0px_2px_12px_rgba(0,0,0,0.04)] fixed top-0 w-full z-50">
+<nav class="flex justify-between items-center px-8 h-20 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed-dim">
+                QuickKart
+            </div>
+<div class="hidden md:flex items-center space-x-gutter">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-body-md" href="#">Collections</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-body-md" href="#">New Arrivals</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-body-md" href="#">Concierge</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary-container text-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-8">
+<!-- Checkout Flow Container -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter" id="checkout-container">
+<!-- Left: Payment Form -->
+<div class="lg:col-span-7 space-y-stack-md">
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg mb-2">Secure Checkout</h1>
+<p class="text-on-surface-variant">Step 2 of 2: Payment &amp; Final Review</p>
+</div>
+<!-- Payment Methods Selection -->
+<div class="glass-panel p-stack-md rounded-xl space-y-4">
+<h3 class="font-title-md text-title-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+                        Payment Method
+                    </h3>
+<div class="grid grid-cols-2 gap-4">
+<button class="border-2 border-primary-container bg-surface-container-low p-4 rounded-lg flex items-center justify-center gap-2 text-primary font-semibold">
+<span class="material-symbols-outlined">credit_card</span>
+                            Card
+                        </button>
+<button class="border border-outline-variant bg-surface-container-lowest p-4 rounded-lg flex items-center justify-center gap-2 text-on-surface-variant hover:border-primary-container transition-all">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                            Wallet
+                        </button>
+</div>
+<div class="space-y-4 mt-6">
+<div class="space-y-1">
+<label class="text-label-sm text-on-surface-variant">CARDHOLDER NAME</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-surface-variant" placeholder="Johnathan Sterling" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm text-on-surface-variant">CARD NUMBER</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 pr-12 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-surface-variant" placeholder="**** **** **** 4242" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-label-sm text-on-surface-variant">EXPIRY DATE</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-surface-variant" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm text-on-surface-variant">CVC</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-surface-variant" placeholder="***" type="password"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-2">
+<input class="rounded text-primary focus:ring-primary bg-surface-container-lowest border-outline-variant" id="save-card" type="checkbox"/>
+<label class="text-body-md text-on-surface-variant" for="save-card">Save card details for future purchases</label>
+</div>
+</div>
+<!-- Billing Address Summary -->
+<div class="glass-panel p-stack-md rounded-xl flex items-start justify-between">
+<div>
+<h3 class="font-title-md text-title-md mb-1">Billing Address</h3>
+<p class="text-on-surface-variant text-body-md">221B Baker St, London, NW1 6XE, UK</p>
+</div>
+<button class="text-primary hover:underline text-label-sm">Edit</button>
+</div>
+</div>
+<!-- Right: Order Summary -->
+<div class="lg:col-span-5">
+<div class="glass-panel p-stack-md rounded-xl sticky top-28">
+<h3 class="font-title-md text-title-md mb-6">Order Summary</h3>
+<!-- Items Bento-ish List -->
+<div class="space-y-4 mb-8">
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg overflow-hidden shrink-0 border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end, close-up photograph of a minimalist titanium smartwatch with an emerald green digital face. The watch rests on a dark, polished stone surface, illuminated by soft cinematic moonlight that highlights the metallic texture. Luxury retail aesthetic, deep obsidian tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVh-j4VgmTxh24MaEnNE7vPcvWQh7Uanf-COV0UcikD9rS33-7D3CEf8xPOefllqvPCH6W4Kt7d5WPZD9Q_s6cxC3LnQMgtJEZTi81_FP8IgYokD-YSdXLRbTATl7mtk98iNWYKQyx5FocSLwc2lN4xBODOLILj_R4G2bnHl6dFDAtN8COc3FS0M9xHu_bWO9MljYECb14XoZkb3EIy5EuWGT9Sqvbw9VE-0DBMDzXl4ra8DQeuq2PKiXCIJ-7k6zqgIqjfgGOeDU')"></div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="font-semibold text-primary">Titanium GT-3 Watch</p>
+<p class="text-on-surface-variant text-label-sm">Noir Edition / 44mm</p>
+<p class="text-on-surface mt-1">$499.00</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg overflow-hidden shrink-0 border border-outline-variant">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close-up of premium leather noise-canceling headphones in matte charcoal grey. The headphones are shown against a moody dark background with sharp highlights catching the texture of the leather. Sophisticated dark luxury product photography with emerald accents in the background bokeh." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7b4uAwHQKnn_hVcg27uA-N2VZQmaNWUThg1kquC1w3hwRh26-OZiqcu2fvP796_2oCKZyQ69KbXu7h9tepGJMqvCCZ7yEA8QIJ3hJ9znVD2Fhy_wB2DCc-vTfq1gmaYxyPkwMOPzIat9ieplvQqfZnZrtmbVS3Cs-BFgsOA_SMXyMtDbqjR9WZnvaaNAT_cNdud8IjnOUlwmmQcKtDWnxLVtGBbHSzhu5bnkiWZ9wPHup_DVUoRqfwMUMgA62Bnvux4XiKKxsrik')"></div>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="font-semibold text-primary">Aura-7 Headphones</p>
+<p class="text-on-surface-variant text-label-sm">Matte Charcoal</p>
+<p class="text-on-surface mt-1">$350.00</p>
+</div>
+</div>
+</div>
+<!-- Totals Breakdown -->
+<div class="space-y-3 pt-6 border-t border-outline-variant">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span>$849.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-primary">Free</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Tax (Est.)</span>
+<span>$42.45</span>
+</div>
+<div class="flex justify-between text-headline-lg font-bold pt-4 border-t border-outline-variant mt-2">
+<span>Total</span>
+<span class="text-primary">$891.45</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-primary font-bold py-5 rounded-lg mt-8 flex items-center justify-center gap-3 hover:opacity-90 active:scale-95 transition-all text-body-lg" onclick="simulatePayment()">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+                        Confirm Payment
+                    </button>
+<p class="text-center text-on-tertiary-container text-[11px] mt-4 uppercase tracking-widest">
+                        Encrypted with 256-bit SSL Security
+                    </p>
+</div>
+</div>
+</div>
+<!-- Success Modal (Hidden by default) -->
+<div class="fixed inset-0 bg-background/90 backdrop-blur-xl z-[60] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-700" id="success-overlay">
+<div class="max-w-lg w-full px-6 text-center transform scale-90 transition-transform duration-500" id="success-card">
+<div class="mb-8 relative">
+<div class="w-24 h-24 bg-primary-container rounded-full mx-auto flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Particle Decoration -->
+<div class="absolute inset-0 flex items-center justify-center -z-10">
+<div class="w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+</div>
+</div>
+<h2 class="font-display-lg text-[48px] font-bold text-primary mb-4">Payment Confirmed</h2>
+<p class="text-on-surface-variant text-body-lg mb-8 leading-relaxed">
+                    Your order <span class="text-primary font-bold">#QK-2024982</span> has been successfully placed. A confirmation receipt has been sent to your inbox.
+                </p>
+<div class="glass-panel p-6 rounded-xl mb-8 text-left space-y-3">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Estimated Delivery</span>
+<span class="text-on-surface font-semibold">Oct 24 - Oct 26</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Shipping Method</span>
+<span class="text-on-surface">Express Courier</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="bg-primary-container text-primary font-bold py-4 rounded-lg hover:opacity-90 transition-all">
+                        Track My Order
+                    </button>
+<button class="text-on-surface-variant hover:text-primary transition-colors text-label-sm" onclick="window.location.reload()">
+                        Return to Shop
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-highest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-8 py-20 w-full max-w-container-max mx-auto">
+<div class="col-span-1 lg:col-span-1">
+<div class="font-display-lg text-title-md text-primary font-bold mb-4">QuickKart</div>
+<p class="text-on-surface-variant mb-6 pr-4">Redefining the digital shopping experience through curated luxury and precision logistics.</p>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-4">Shopping</h4>
+<ul class="space-y-3 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Men's Collection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Women's Collection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Accessories</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Limited Editions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-4">Assistance</h4>
+<ul class="space-y-3 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-4">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center py-6 border-t border-outline-variant/30 text-on-surface-variant text-label-sm">
+            © 2024 QuickKart. All rights reserved. Premium DTC shopping experience.
+        </div>
+</footer>
+<script>
+        function simulatePayment() {
+            const btn = event.currentTarget;
+            const originalHtml = btn.innerHTML;
+            
+            // Interaction State
+            btn.innerHTML = `<span class="animate-spin material-symbols-outlined">progress_activity</span> Processing...`;
+            btn.classList.add('opacity-80', 'pointer-events-none');
+
+            // Simulate Network Delay
+            setTimeout(() => {
+                const overlay = document.getElementById('success-overlay');
+                const card = document.getElementById('success-card');
+                
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100');
+                
+                setTimeout(() => {
+                    card.classList.remove('scale-90');
+                    card.classList.add('scale-100');
+                }, 100);
+
+            }, 2000);
+        }
+
+        // Simple parallax on scroll for glass effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.glass-panel').forEach(el => {
+                const speed = 0.05;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

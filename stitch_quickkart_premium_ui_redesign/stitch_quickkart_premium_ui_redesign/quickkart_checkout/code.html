@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | QuickKart Premium DTC</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002117",
+                    "surface-tint": "#3c6658",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#581e00",
+                    "surface-container": "#edeeef",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#c88f86",
+                    "on-primary-container": "#79a694",
+                    "surface": "#f8f9fa",
+                    "error": "#ba1a1a",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed": "#ffdad4",
+                    "on-tertiary-fixed": "#33110c",
+                    "secondary-container": "#fd6c1a",
+                    "primary-fixed-dim": "#a3d0be",
+                    "outline-variant": "#c0c8c3",
+                    "inverse-primary": "#a3d0be",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed-variant": "#673b34",
+                    "on-secondary-fixed-variant": "#7c2e00",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "tertiary-container": "#512923",
+                    "tertiary": "#371410",
+                    "tertiary-fixed-dim": "#f6b8ae",
+                    "primary-container": "#0d3b2e",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#414845",
+                    "on-secondary-fixed": "#360f00",
+                    "inverse-on-surface": "#f0f1f2",
+                    "outline": "#717974",
+                    "surface-dim": "#d9dadb",
+                    "secondary-fixed": "#ffdbcd",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#234e40",
+                    "secondary-fixed-dim": "#ffb596",
+                    "primary": "#00241a",
+                    "on-background": "#191c1d",
+                    "secondary": "#a33e00",
+                    "primary-fixed": "#beedd9",
+                    "inverse-surface": "#2e3132",
+                    "surface-bright": "#f8f9fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "section-padding": "80px"
+            },
+            "fontFamily": {
+                    "body-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "display-lg": ["Epilogue"],
+                    "headline-lg": ["Epilogue"],
+                    "headline-md": ["Epilogue"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-input-focus:focus {
+            outline: none;
+            border-color: #0d3b2e;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar (Shared Component) - Minimized for Checkout -->
+<nav class="bg-surface sticky top-0 z-50 shadow-[0px_2px_12px_rgba(0,0,0,0.04)] w-full">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-container-max mx-auto">
+<a class="font-display-lg text-display-lg font-bold text-primary" href="/">QuickKart</a>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 text-on-surface-variant font-label-sm">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+                    SECURE CHECKOUT
+                </div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">person</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">shopping_cart</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-8 py-12">
+<div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-gutter">
+<!-- Checkout Steps & Form -->
+<div class="lg:col-span-8">
+<!-- Step Indicator -->
+<div class="flex items-center mb-12 gap-4">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold font-label-sm">1</span>
+<span class="font-bold text-primary font-body-md">Shipping</span>
+</div>
+<div class="h-[1px] flex-1 bg-outline-variant max-w-[40px]"></div>
+<div class="flex items-center gap-2 opacity-40">
+<span class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold font-label-sm">2</span>
+<span class="font-body-md">Delivery</span>
+</div>
+<div class="h-[1px] flex-1 bg-outline-variant max-w-[40px]"></div>
+<div class="flex items-center gap-2 opacity-40">
+<span class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold font-label-sm">3</span>
+<span class="font-body-md">Payment</span>
+</div>
+</div>
+<section>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Shipping Information</h1>
+<p class="text-on-surface-variant mb-8">Please enter your delivery details to continue.</p>
+<form class="space-y-6">
+<!-- Contact Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Email Address</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="alex@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Phone Number</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<!-- Name -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">First Name</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="Alex" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Last Name</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="Rivers" type="text"/>
+</div>
+</div>
+<!-- Address -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Street Address</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="123 Artisan Way" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">City</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="Portland" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">State / Province</label>
+<select class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200 appearance-none">
+<option>Oregon</option>
+<option>California</option>
+<option>New York</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Zip Code</label>
+<input class="bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-3 form-input-focus transition-all duration-200" placeholder="97201" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-4">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="save-info" type="checkbox"/>
+<label class="text-body-md text-on-surface-variant" for="save-info">Save this information for next time</label>
+</div>
+<div class="pt-8 flex flex-col md:flex-row gap-4 items-center">
+<button class="w-full md:w-auto px-12 py-4 bg-primary text-white rounded-xl font-bold hover:opacity-90 active:scale-95 transition-all shadow-sm" type="button">
+                                Continue to Delivery
+                            </button>
+<button class="text-on-surface-variant font-bold hover:text-primary transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined">chevron_left</span>
+                                Back to Cart
+                            </button>
+</div>
+</form>
+</section>
+</div>
+<!-- Sticky Sidebar Order Summary -->
+<div class="lg:col-span-4 mt-12 lg:mt-0">
+<aside class="sticky top-24 bg-white rounded-xl shadow-[0px_2px_12px_rgba(0,0,0,0.04)] overflow-hidden">
+<div class="p-8 bg-surface-container-low border-b border-outline-variant/30">
+<h2 class="font-headline-md text-headline-md text-primary">Order Summary</h2>
+</div>
+<div class="p-8 space-y-6">
+<!-- Items -->
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-end, studio-lit photograph of a minimalist matte black wireless headphone sitting on a marble surface. The lighting is soft and directional, highlighting the sleek curves and premium texture of the product. The color palette is composed of deep charcoals and bright highlights, emphasizing a sophisticated direct-to-consumer electronics aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuRhnKMY499NlRjR7r_SQC7Dik0Jr9ZQgfio3l-k_ssXHeQBhe95zgEA71RIeZx9CIGv5Dl66InL3pwAnuwR_hqyArg1C867DSCK1TVFQ22W6jAouckgpCv_IiQhcH9_6T3p2ZHBCRy9aXjS4_KAMG4v6LoWktlHserhXU4wtFDcR9pwn0a8BOthC6TtIcoj5vt_aVIrW0x1oFTCduOPSXhyMHqv2ZhQaeFvVLg0o-awnUpHS78H8o5JunHa0JoMc_9vrTUYnNfhc')"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-primary">Studio Wireless Pro</h4>
+<p class="text-on-surface-variant font-label-sm">Obsidian Black • Qty 1</p>
+<p class="font-bold text-primary mt-1">$299.00</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-20 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A premium, lifestyle product shot of a weighted wool throw blanket in a soft cream color, neatly folded on a modern oak bench. The scene is bathed in warm, natural afternoon sunlight streaming through a large window, creating long, soft shadows. The aesthetic is extremely minimalist and high-end, focusing on textile detail and tactile comfort." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_Xu1xNi4qY0hqYST1Fvz47WW6DWh_Bvn-T7mHrzIychWuEvKRLlR8z5UbWitfwaTk_1UXlFtEwMC7ON8yndA1YYZJZX6lTd1fprC7KRZxnUqJK120INWNZ9tk4yOVEJYzPhyNUEFCyAhGhqi3HfAns3-CW847siAzJLCq2R-PHX4w8e8AbN07zM5wh5z6P476d4NDmHVcldz77M0pNNRFrIswUH0B2DmLISVOJQZu9lgQBA1Op0uUzA6Q7RGI8PbMPRW437y9kxo')"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-primary">Heavy Wool Throw</h4>
+<p class="text-on-surface-variant font-label-sm">Cream Oat • Qty 1</p>
+<p class="font-bold text-primary mt-1">$145.00</p>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant/30"/>
+<!-- Calculations -->
+<div class="space-y-3">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span>$444.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-primary font-bold">FREE</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Estimated Tax</span>
+<span>$35.52</span>
+</div>
+<div class="flex justify-between text-headline-md font-bold text-primary pt-2">
+<span>Total</span>
+<span>$479.52</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="pt-4">
+<div class="flex gap-2">
+<input class="flex-1 bg-[#F8F9FA] border border-outline-variant rounded-lg px-4 py-2 text-sm focus:outline-none" placeholder="Promo Code" type="text"/>
+<button class="px-4 py-2 border border-primary text-primary font-bold rounded-lg hover:bg-primary-container hover:text-white transition-all">Apply</button>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm justify-center pt-4">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+                            100% Satisfaction Guaranteed
+                        </div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-low mt-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-8 py-section-padding w-full max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<span class="font-display-lg text-display-lg text-primary font-bold">QuickKart</span>
+<p class="text-on-surface-variant max-w-xs">Redefining the modern shopping experience through curation and quality.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Company</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-secondary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Returns</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Support</h4>
+<ul class="space-y-4 text-on-surface-variant">
+<li><a class="hover:text-secondary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Newsletter</h4>
+<p class="text-on-surface-variant mb-4">Join for exclusive early access and style guides.</p>
+<div class="flex gap-2">
+<input class="bg-white px-4 py-2 rounded-lg border border-outline-variant w-full focus:outline-none" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg material-symbols-outlined">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-8 py-8 border-t border-outline-variant/30 text-center text-on-surface-variant font-label-sm">
+            © 2024 QuickKart. All rights reserved. Premium DTC shopping experience.
+        </div>
+</footer>
+<script>
+        // Simple Interaction: Lift the sidebar on scroll
+        window.addEventListener('scroll', () => {
+            const sidebar = document.querySelector('aside');
+            if(window.scrollY > 100) {
+                sidebar.classList.add('lg:shadow-lg');
+            } else {
+                sidebar.classList.remove('lg:shadow-lg');
+            }
+        });
+
+        // Micro-interaction for inputs
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').classList.remove('text-primary');
+            });
+        });
+    </script>
+</body></html>

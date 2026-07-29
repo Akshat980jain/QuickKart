@@ -1,55 +1,43 @@
 [
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_surface.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_surface.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_gradient_success_background.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\gradient_success_background.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_splash.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_splash.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_order_success.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_order_success.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_coupon.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_coupon.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\navigation_nav_graph.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\navigation\\nav_graph.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_fashion.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_fashion.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_points_history.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_points_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_compare.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_compare.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_lock.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_lock.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_heart.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_heart.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_facebook.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_facebook.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_loyalty.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_loyalty.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_category.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_star.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_star.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_profile_menu.xml.flat",
@@ -64,32 +52,12 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_truck.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_back.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_back.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_close.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_close.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_compare.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_compare.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_google.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_google.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_cancel_return.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_cancel_return.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_button_primary.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_button_primary.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_placeholder_image.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\placeholder_image.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_orders.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_orders.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_check_circle.xml.flat",
@@ -100,20 +68,32 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_button_success.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_minus.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_minus.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_background_light.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_background_light.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_edit.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_edit.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_search.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_mic.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_mic.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_heart_outline.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_heart_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_flash_sale.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_flash_sale.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_checkout.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_checkout.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_search.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_search.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_loyalty_points.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_loyalty_points.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_track.xml.flat",
@@ -124,40 +104,20 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_clock.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_shield.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_shield.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_white_alpha.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_white_alpha.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_register.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_white_alpha.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_white_alpha.xml"
-    },
-    {
-        "merged": "com.quickkart.app-merged_res-51:/layout_fragment_home.xml.flat",
-        "source": "com.quickkart.app-main-53:/layout/fragment_home.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_badge_white.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_badge_white.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_strikethrough.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\strikethrough.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_orders.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\fragment_orders.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_email.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_email.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_home.xml.flat",
@@ -168,10 +128,6 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_delete.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_primary.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_primary.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_cart.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_cart.xml"
     },
@@ -180,56 +136,264 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_phone.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_share.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_share.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_divider.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_divider.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_error.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_error.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_divider.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_divider.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_order.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_order.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_badge_error.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_badge_error.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_add.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_grid.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_grid.xml"
     },
     {
-        "merged": "com.quickkart.app-merged_res-51:/drawable_ic_camera.xml.flat",
-        "source": "com.quickkart.app-main-53:/drawable/ic_camera.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_orders.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_orders.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_order.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_order.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_input_background.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_input_background.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "com.quickkart.app-merged_res-51:/layout_activity_search.xml.flat",
-        "source": "com.quickkart.app-main-53:/layout/activity_search.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_orders.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_orders.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_cart.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\fragment_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_wishlist.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_wishlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_camera.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_product_detail.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_product_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_gradient_primary.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\gradient_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_confetti_particle.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\confetti_particle.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_electronics.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_electronics.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_products.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\fragment_products.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_refresh.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_refresh.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_logout.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_download.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_download.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_person.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_person.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_visibility_off.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_visibility_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_plus.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_plus.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_compare_product.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_compare_product.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_sports.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_sports.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_arrow_forward.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_arrow_forward.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_return.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_return.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_info.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_background_white.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_background_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_surface.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_surface.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_order_success.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_order_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_circle_outline.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_circle_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_fashion.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_fashion.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_heart.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_heart.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_facebook.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_facebook.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_order_tracking.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_order_tracking.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_dark_mode.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_dark_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_close.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_cancel_return.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_cancel_return.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_placeholder_image.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\placeholder_image.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_button_primary.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_button_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_orders.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_minus.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_minus.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_edit.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_settings.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_heart_filled.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_heart_filled.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\menu_menu_compare.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\menu\\menu_compare.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_shield.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_shield.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_badge_white.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_badge_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_strikethrough.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\strikethrough.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_email.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_circle_primary.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\circle_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_location.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_share.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_share.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rounded_badge_error.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rounded_badge_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_wishlist.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_wishlist.xml"
+    },
+    {
+        "merged": "com.quickkart.app-merged_res-51:/layout_activity_settings.xml.flat",
+        "source": "com.quickkart.app-main-53:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -244,10 +408,6 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_product_detail.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_product_detail.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_forgot_password.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_forgot_password.xml"
     },
@@ -256,76 +416,36 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_chevron_right.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\menu\\bottom_nav_menu.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_gradient_primary.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\gradient_primary.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_confetti_particle.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\confetti_particle.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_products.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\fragment_products.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_electronics.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_electronics.xml"
-    },
-    {
-        "merged": "com.quickkart.app-merged_res-51:/drawable_ic_mic.xml.flat",
-        "source": "com.quickkart.app-main-53:/drawable/ic_mic.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_login.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_login.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_gradient_background.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\gradient_background.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_login.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_login.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_rating_badge_background.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\rating_badge_background.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_home.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_home.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_cart.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_cart.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_check.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_check.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_logout.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_logout.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_cart.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_cart.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_product.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_product.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\activity_login.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_person.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_person.xml"
-    },
-    {
-        "merged": "com.quickkart.app-merged_res-51:/layout_item_recent_search.xml.flat",
-        "source": "com.quickkart.app-main-53:/layout/item_recent_search.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_visibility_off.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_visibility_off.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_plus.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_plus.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_item_recent_search.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\item_recent_search.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
@@ -340,20 +460,16 @@
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_visibility.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_launcher_foreground.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_success_check.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_success_check.xml"
     },
     {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_sports.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_sports.xml"
-    },
-    {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_dialog_price_filter.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\layout\\dialog_price_filter.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\mipmap-hdpi_ic_launcher.png.flat",
@@ -362,14 +478,6 @@
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_category_home.xml.flat",
         "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_category_home.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_return.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_return.xml"
-    },
-    {
-        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\drawable_ic_info.xml.flat",
-        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-main-53:\\drawable\\ic_info.xml"
     },
     {
         "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.7\\com.quickkart.app-merged_res-51:\\layout_fragment_profile.xml.flat",
