@@ -17,38 +17,38 @@ const Footer: React.FC = () => {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Trust Value Badges */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-12 border-b border-[#0d3b2e]">
-          <div className="flex items-center gap-3">
+          <Link to="/shipping-policy" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <Truck className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-sm">Free Express Shipping</h4>
-              <p className="text-xs text-gray-400">On all orders over ₹500</p>
+              <p className="text-xs text-gray-400">On all orders over ₹499</p>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
+          </Link>
+          <Link to="/privacy" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <ShieldCheck className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-sm">Secure Payment</h4>
               <p className="text-xs text-gray-400">100% SSL encrypted checkout</p>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
+          </Link>
+          <Link to="/returns" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <RotateCcw className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-sm">30-Day Easy Returns</h4>
               <p className="text-xs text-gray-400">Hassle-free money back</p>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
+          </Link>
+          <Link to="/help" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <Headphones className="w-8 h-8 text-[#a3d0be] flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-sm">24/7 Dedicated Support</h4>
               <p className="text-xs text-gray-400">Always here to assist</p>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Main Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 py-12">
           {/* Brand Story */}
           <div className="md:col-span-4 space-y-4">
             <Link to="/" className="font-headline font-bold text-3xl tracking-tighter text-white">
@@ -70,25 +70,29 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Discovery */}
           <div className="md:col-span-2 space-y-3">
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-[#a3d0be]">Shop</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-[#a3d0be]">Discovery</h4>
+            <ul className="space-y-2 text-xs text-gray-300">
               <li><Link to="/products" className="hover:text-white transition-colors">All Products</Link></li>
-              <li><Link to="/deals" className="hover:text-white transition-colors">Autumn Sale</Link></li>
-              <li><Link to="/products?category=home" className="hover:text-white transition-colors">Home & Living</Link></li>
-              <li><Link to="/products?category=electronics" className="hover:text-white transition-colors">Modern Tech</Link></li>
+              <li><Link to="/brands" className="hover:text-white transition-colors">Luxury Brands</Link></li>
+              <li><Link to="/stores" className="hover:text-white transition-colors">Store Locator</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition-colors">QuickKart Journal</Link></li>
+              <li><Link to="/rewards" className="hover:text-white transition-colors">VIP Circle Rewards</Link></li>
+              <li><Link to="/gift-cards" className="hover:text-white transition-colors">Digital Gift Cards</Link></li>
             </ul>
           </div>
 
           {/* Customer Care */}
           <div className="md:col-span-2 space-y-3">
             <h4 className="font-semibold text-sm uppercase tracking-wider text-[#a3d0be]">Customer Care</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link to="/orders" className="hover:text-white transition-colors">Track Order</Link></li>
-              <li><Link to="/wishlist" className="hover:text-white transition-colors">My Wishlist</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Shipping Info</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Returns & Exchanges</a></li>
+            <ul className="space-y-2 text-xs text-gray-300">
+              <li><Link to="/help" className="hover:text-white transition-colors">Help Center & FAQ</Link></li>
+              <li><Link to="/returns" className="hover:text-white transition-colors">Returns & Exchange</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Concierge</Link></li>
+              <li><Link to="/compare" className="hover:text-white transition-colors">Compare Products</Link></li>
+              <li><Link to="/shipping-policy" className="hover:text-white transition-colors">Shipping Policy</Link></li>
+              <li><Link to="/sell" className="hover:text-white transition-colors">Become a Seller</Link></li>
             </ul>
           </div>
 
@@ -113,9 +117,9 @@ const Footer: React.FC = () => {
         <div className="border-t border-[#0d3b2e] pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
           <p>&copy; {new Date().getFullYear()} QuickKart Inc. All rights reserved. Curated for Intentional Living.</p>
           <div className="flex items-center space-x-6">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">Cookie Settings</a>
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+            <Link to="/shipping-policy" className="hover:text-white">Shipping Policy</Link>
           </div>
         </div>
       </div>
