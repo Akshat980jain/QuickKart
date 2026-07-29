@@ -64,7 +64,3 @@ npm run dev
 Open the `android` directory in Android Studio, sync Gradle dependencies, and launch on an emulator or physical device.
 
 ---
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
