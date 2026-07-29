@@ -5,7 +5,7 @@
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?logo=node.js)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?logo=mongodb)](https://www.mongodb.com/)
 [![Android](https://img.shields.io/badge/Mobile-Android%20Kotlin-3DDC84?logo=android)](https://developer.android.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 
 QuickKart is a full-stack, enterprise-grade e-commerce platform designed for curated luxury shopping. Built with modern web technologies, responsive Material Design tokens, and native mobile compatibility, QuickKart delivers a seamless end-to-end commerce experience for customers, store administrators, and marketplace merchants.
 
